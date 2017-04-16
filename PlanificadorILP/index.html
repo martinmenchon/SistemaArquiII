@@ -1,0 +1,496 @@
+<html>
+    <head>
+        <title>Planificador ILP</title>
+        <meta charset="utf-8"/>
+        <script data-main="js/app" src="js/require.js"></script>
+        <script src="js/app/jquery.js"></script>
+        <script src="js/libs/bootstrap/bootstrap.min.js"></script>
+        <link rel="stylesheet" media="screen" href="css/bootstrap.css" />
+        <style type="text/css" media="screen">
+
+        body {
+            margin: 10px;
+        }
+
+        #header {
+            position: fixed;
+            top:0;
+            height:70px;
+            background: #FFF;
+            width: 100%;
+            z-index: 9;
+            display: block;
+        }
+
+        .section {
+            padding: 80px 0 0 0 !important;
+        }
+
+        #editor {
+            width: 500px;
+            height: 650px;
+        }
+
+        #sigma-container {
+           width:  400px;
+           height:  300px;
+        }
+
+        #tables-container {
+            width: auto;
+            overflow-x: auto;
+        }
+
+        #tables-container table {
+            display: table-cell;
+            width: auto;
+        }
+
+        .processor-table {
+            padding: 0 20px 0 0 !important;
+            border: none !important;
+            text-align:center;
+            width:100px;
+            overflow: auto;
+        }
+
+        #configuration-pane {
+            width: 450px;
+            height: 500px;
+        }
+
+        .glyphicon {
+            top:5px !important;
+        }
+
+        .inline-title {
+            display: inline;
+        }
+
+        .right-aligned {
+            float: right;
+            margin-right: 25px;
+
+        }
+
+        .title-button {
+            margin: 15px 0 15px 15px;
+        }
+
+        .tittle-button-left {
+            margin: 15px 15px 15px 0;
+            float: left;
+        }
+
+        ul {
+            padding-left: 0 !important;
+        }
+
+        .scroll-1 {
+            min-height:auto;
+        }
+
+        .scroll-container {
+            overflow-x: hidden;
+            overflow-y: auto;
+        }
+
+        #header {
+          background: #FFF;
+          border-bottom: 1px solid #CCC;
+        }
+
+        #title {
+          margin-top: -40px;
+        }
+
+        #left-btns {
+          margin: 10px 0 0 0px;
+        }
+
+        .canvas-graph {
+          background-color: white;
+          border: solid 1px black;
+          width: 100%;
+          height: 500px;
+        }
+
+        .square-key {
+          width: 10px;
+          height: 10px;
+          border: 2px solid black;
+          display:inline-block
+        }
+
+        .node-no-cc {
+          background-color: yellow;
+        }
+
+        .node-cc {
+          background-color: red;
+        }
+
+        </style>
+    </head>
+    <body>
+
+        <div class="modal fade" tabindex="-1" role="dialog" id="instructions-modal">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Juego de instrucciones</h4>
+              </div>
+              <div class="modal-body">
+                <p><pre>{ADD | SUB | MUL | DIV} r0, r1, r2</pre> para operaciones aritméticas de enteros.</p>
+                <p><pre>{ADDF | SUBF | MULF | DIVF} r0, r1, r2</pre> para operaciones aritméticas de punto flotante.</p>
+                <p><pre>{LD | SD} r0, 80(r1)</pre> para operaciones de memoria de enteros.</p>
+                <p><pre>{LW | SW} r0, 4(r1)</pre> para operaciones de memoria de punto flotante.</p>
+                <p style="color:red;">* Las instrucciones sólo serán aceptadas si están en mayúsculas.</p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Entendido</button>
+              </div>
+            </div><!-- /.modal-content -->
+          </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+
+        <div>
+            <div id="header">
+              <div id="left-btns">
+                  <a class="btn btn-default navbar-btn btn-sm" href="#secondPage">Dependencias</a>
+                  <a class="btn btn-default navbar-btn btn-sm" href="#thirdPage">Ejecución</a>
+                   <a class="btn btn-default navbar-btn btn-sm" href="#firstPage">Inicio</a>
+                  <a class="btn btn-danger navbar-btn btn-sm" href="#" id="about">Autores</a>
+                </div>
+                  <h1 class="text-center" id="title">Planificador ILP</h1>
+            </div>
+
+            <div class="main-content" id="fullpage">
+                <div class="section scroll-container">
+                  <div class="scroll-1">
+                      <div class="main-content form-inline">
+                          <div class="row row-centered">
+                              <div class="col-md-5 col-centered"="navbar">
+                                <p>
+                                      <h3 class="inline-title">Código a procesar <span class="glyphicon glyphicon-pencil"></span></h3>
+                                      <button class="btn btn-sm btn-default right-aligned" id="showInstructions" data-toggle="modal" data-target="#instructions-modal">Juego de instrucciones</button>
+                                      <button class="btn btn-sm btn-success right-aligned" id="init">Iniciar</button>
+                                  </p>
+                                  <pre id="editor"></pre>
+                              </div>
+                              <div class="col-md-5 col-centered">
+                                  <h3>Configuración <span class="glyphicon glyphicon-cog"></span></h3>
+                                  <div id="configuration-pane">
+
+                                      <h4>Ciclos por instruccion </h4>
+                                      <p>
+                                        <span>ADD:</span>
+                                          <select id="addCycles" class="btn btn-sm btn-default">
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                                <option value="6">6</option>
+                                                <option value="7">7</option>
+                                                <option value="8">8</option>
+                                                <option value="9">9</option>
+                                                <option value="10">10</option>
+                                          </select>
+                                          <span>ADDF:</span>
+                                            <select id="addfCycles" class="btn btn-sm btn-default">
+                                                  <option value="1">1</option>
+                                                  <option value="2">2</option>
+                                                  <option value="3">3</option>
+                                                  <option value="4">4</option>
+                                                  <option value="5">5</option>
+                                                  <option value="6">6</option>
+                                                  <option value="7">7</option>
+                                                  <option value="8">8</option>
+                                                  <option value="9">9</option>
+                                                  <option value="10">10</option>
+                                            </select>
+                                            <span>SUB:</span>
+                                              <select id="subCycles" class="btn btn-sm btn-default">
+                                                    <option value="1">1</option>
+                                                    <option value="2">2</option>
+                                                    <option value="3">3</option>
+                                                    <option value="4">4</option>
+                                                    <option value="5">5</option>
+                                                    <option value="6">6</option>
+                                                    <option value="7">7</option>
+                                                    <option value="8">8</option>
+                                                    <option value="9">9</option>
+                                                    <option value="10">10</option>
+                                              </select>
+                                              <span>SUBF:</span>
+                                                <select id="subfCycles" class="btn btn-sm btn-default">
+                                                      <option value="1">1</option>
+                                                      <option value="2">2</option>
+                                                      <option value="3">3</option>
+                                                      <option value="4">4</option>
+                                                      <option value="5">5</option>
+                                                      <option value="6">6</option>
+                                                      <option value="7">7</option>
+                                                      <option value="8">8</option>
+                                                      <option value="9">9</option>
+                                                      <option value="10">10</option>
+                                                </select>
+                                              </p>
+                                              <p>
+                                                <span>MUL:</span>
+                                                  <select id="mulCycles" class="btn btn-sm btn-default">
+                                                        <option value="1">1</option>
+                                                        <option value="2">2</option>
+                                                        <option value="3">3</option>
+                                                        <option value="4">4</option>
+                                                        <option value="5">5</option>
+                                                        <option value="6">6</option>
+                                                        <option value="7">7</option>
+                                                        <option value="8">8</option>
+                                                        <option value="9">9</option>
+                                                        <option value="10">10</option>
+                                                  </select>
+                                                  <span>MULF:</span>
+                                                    <select id="mulfCycles" class="btn btn-sm btn-default">
+                                                          <option value="1">1</option>
+                                                          <option value="2">2</option>
+                                                          <option value="3">3</option>
+                                                          <option value="4">4</option>
+                                                          <option value="5">5</option>
+                                                          <option value="6">6</option>
+                                                          <option value="7">7</option>
+                                                          <option value="8">8</option>
+                                                          <option value="9">9</option>
+                                                          <option value="10">10</option>
+                                                    </select>
+                                                    <span>DIV:</span>
+                                                      <select id="divCycles" class="btn btn-sm btn-default">
+                                                            <option value="1">1</option>
+                                                            <option value="2">2</option>
+                                                            <option value="3">3</option>
+                                                            <option value="4">4</option>
+                                                            <option value="5">5</option>
+                                                            <option value="6">6</option>
+                                                            <option value="7">7</option>
+                                                            <option value="8">8</option>
+                                                            <option value="9">9</option>
+                                                            <option value="10">10</option>
+                                                      </select>
+                                                      <span>DIVF:</span>
+                                                        <select id="divfCycles" class="btn btn-sm btn-default">
+                                                              <option value="1">1</option>
+                                                              <option value="2">2</option>
+                                                              <option value="3">3</option>
+                                                              <option value="4">4</option>
+                                                              <option value="5">5</option>
+                                                              <option value="6">6</option>
+                                                              <option value="7">7</option>
+                                                              <option value="8">8</option>
+                                                              <option value="9">9</option>
+                                                              <option value="10">10</option>
+                                                        </select>
+                                                      </p>
+                                                      <p>
+                                                      <span>LD:</span>
+                                                        <select id="ldCycles" class="btn btn-sm btn-default">
+                                                              <option value="1">1</option>
+                                                              <option value="2">2</option>
+                                                              <option value="3">3</option>
+                                                              <option value="4">4</option>
+                                                              <option value="5">5</option>
+                                                              <option value="6">6</option>
+                                                              <option value="7">7</option>
+                                                              <option value="8">8</option>
+                                                              <option value="9">9</option>
+                                                              <option value="10">10</option>
+                                                        </select>
+                                                        <span>LW:</span>
+                                                          <select id="lwCycles" class="btn btn-sm btn-default">
+                                                                <option value="1">1</option>
+                                                                <option value="2">2</option>
+                                                                <option value="3">3</option>
+                                                                <option value="4">4</option>
+                                                                <option value="5">5</option>
+                                                                <option value="6">6</option>
+                                                                <option value="7">7</option>
+                                                                <option value="8">8</option>
+                                                                <option value="9">9</option>
+                                                                <option value="10">10</option>
+                                                          </select>
+                                                          <span>SD:</span>
+                                                            <select id="sdCycles" class="btn btn-sm btn-default">
+                                                                  <option value="1">1</option>
+                                                                  <option value="2">2</option>
+                                                                  <option value="3">3</option>
+                                                                  <option value="4">4</option>
+                                                                  <option value="5">5</option>
+                                                                  <option value="6">6</option>
+                                                                  <option value="7">7</option>
+                                                                  <option value="8">8</option>
+                                                                  <option value="9">9</option>
+                                                                  <option value="10">10</option>
+                                                            </select>
+                                                            <span>SW:</span>
+                                                              <select id="swCycles" class="btn btn-sm btn-default">
+                                                                    <option value="1">1</option>
+                                                                    <option value="2">2</option>
+                                                                    <option value="3">3</option>
+                                                                    <option value="4">4</option>
+                                                                    <option value="5">5</option>
+                                                                    <option value="6">6</option>
+                                                                    <option value="7">7</option>
+                                                                    <option value="8">8</option>
+                                                                    <option value="9">9</option>
+                                                                    <option value="10">10</option>
+                                                              </select>
+                                                            </p>
+
+                                      <h4>Unidades funcionales</h4>
+
+                                      <ul>
+                                          <li>
+                                              <p>Propósito general</p>
+                                              <p>
+                                                  <span>Cantidad:</span>
+                                                  <select id="multi_type" class="btn btn-sm btn-default">
+                                                        <option value="0">0</option>
+                                                        <option value="1">1</option>
+                                                        <option value="2">2</option>
+                                                        <option value="3">3</option>
+                                                        <option value="4">4</option>
+                                                        <option value="5">5</option>
+                                                  </select>
+                                              </p>
+                                          </li>
+                                          <li>
+                                              <p>Aritmética de enteros</p>
+                                              <p>
+                                                  <span>Cantidad:</span>
+                                                  <select id="arith_int" class="btn btn-sm btn-default">
+                                                      <option value="0">0</option>
+                                                        <option value="1">1</option>
+                                                        <option value="2">2</option>
+                                                        <option value="3">3</option>
+                                                        <option value="4">4</option>
+                                                        <option value="5">5</option>
+                                                  </select>
+                                              </p>
+                                          </li>
+                                          <li>
+                                              <p>Aritmética de punto flotante</p>
+                                              <p>
+                                                  <span>Cantidad:</span>
+                                                  <select id="arith_float" class="btn btn-sm btn-default">
+                                                      <option value="0">0</option>
+                                                        <option value="1">1</option>
+                                                        <option value="2">2</option>
+                                                        <option value="3">3</option>
+                                                        <option value="4">4</option>
+                                                        <option value="5">5</option>
+                                                  </select>
+                                              </p>
+                                          </li>
+
+                                          <li>
+                                              <p>Acceso a memoria para enteros</p>
+                                              <p>
+                                                  <span>Cantidad:</span>
+                                                  <select id="mem_int" class="btn btn-sm btn-default">
+                                                      <option value="0">0</option>
+                                                        <option value="1">1</option>
+                                                        <option value="2">2</option>
+                                                        <option value="3">3</option>
+                                                        <option value="4">4</option>
+                                                        <option value="5">5</option>
+                                                  </select>
+                                              </p>
+                                          </li>
+                                          <li>
+                                              <p> De acceso a memoria de punto flotante</p>
+                                              <p>
+                                                  <span>Cantidad:</span>
+                                                  <select id="mem_float" class="btn btn-sm btn-default">
+                                                      <option value="0">0</option>
+                                                        <option value="1">1</option>
+                                                        <option value="2">2</option>
+                                                        <option value="3">3</option>
+                                                        <option value="4">4</option>
+                                                        <option value="5">5</option>
+                                                  </select>
+                                              </p>
+                                          </li>
+                                      </ul>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                </div>
+
+                <div class="section scroll-container" >
+                    <div class="scroll-1">
+                        <div class="main-content">
+                            <div class="row row-centered">
+                                <div class="col-md-5 col-centered" id="dependency-graph-background">
+                                    <h3>Grafo de dependencias</h3>
+                                    <div id="sg">
+                                        <div class="alert alert-info" role="alert" id="dependencies-alert">Para visualizar el grafo de dependencias, primero debes <strong>introducir las instrucciones</strong></div>
+                                    </div>
+
+                                    <div id="graph">
+                                    </div>
+                                    <div id="graph-keys">
+                                    </div>
+
+                                </div>
+                                <div class="col-md-3 col-centered" id="keys">
+                                    <h3>Claves</h3>
+                                    <ul id="keys-list"></ul>
+                                </div>
+                            </div>
+
+                            <div class="row row-centered">
+                                <div class="col-md-5 col-centered" id="dependencies">
+                                    <h3>Dependencias detectadas</h3>
+                                    <ul id="dependencies-list"></ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section scroll-container" id="last">
+                  <div class="scroll-1">
+                        <p>
+                            <h3 class="inline-title">Simulación</h3>
+                        </p>
+
+                        <div class="alert alert-info" role="alert" id="non-tables">Para visualizar la ejecución de las instrucciones primero debes ingresarlas.</div>
+
+                        <div id="tables-container">
+                            <!--tabla 1-->
+                            <table class="table table-bordered processor-table" id="cycle-counter-table">
+                                <tbody></tbody>
+                            </table>
+
+                            <table class="table table-bordered processor-table" id="planned-table">
+                                <tbody></tbody>
+                            </table>
+
+                            <!--tabla 2-->
+                            <table class="table table-bordered processor-table" id="choosed-table">
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                        <p>
+                        <button id="previousCycle"  class="btn btn-default btn-sm tittle-button-left">Anterior</button>
+                        <button id="nextCycle" class="btn btn-default btn-sm title-button">Siguiente</button>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
