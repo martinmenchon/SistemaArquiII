@@ -144,6 +144,8 @@ app.controller('InstController', function() {
     };
 
     this.putInstInTable = function() {
+        if (this.allSet())
+            return;
     	this.selectedInst['id'] = 'S'+ this.nInstruction;
     	this.instr_run.push(this.selectedInst);
     	this.nInstruction++;
