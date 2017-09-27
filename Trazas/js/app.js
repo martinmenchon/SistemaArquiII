@@ -235,11 +235,9 @@ app.controller('controlador',function() {
 	this.dfsCiclo = function (grafo, index, traza, soluciones,costo,ciclo,costoCiclo,anterior){
 		grafo[index]["Unidos"] = true;
 		grafo[index]["Visit"] = true;
-		var yociclo= false;
 		if (grafo[index]["Label"] == " " )
 		{
 			if (ciclo != -1){
-				
 				soluciones.push(this.armarTraza(traza,ciclo,costoCiclo));
 			}
 		}
@@ -264,15 +262,10 @@ app.controller('controlador',function() {
 							this.dfsCiclo(grafo,traza[primeroCiclo],traza,soluciones,costo,ciclo,costoCiclo,traza[primeroCiclo]);
 						}
 						ciclo=-1;
+						traza.pop();
 					}
 					
 				}
-			}
-			if (yociclo)
-			{
-				traza.pop();
-			
-				yociclo = false;
 			}
 			if(index != anterior){
 			traza.pop();
@@ -324,7 +317,6 @@ app.controller('controlador',function() {
 				this.dfsCiclo(grafo, i, [], this.soluciones,[],-1,0,-1);
 			}
 		}
-		
 		this.grillaTrazas=[];
 		var text="";
 		for (var i in this.soluciones)
@@ -336,7 +328,7 @@ app.controller('controlador',function() {
 				text =text.replace(sentencia, this.tiempoSentencia[j]);
 			}
 			text =text.replace("N", numeroIteraciones);
-			this.grillaTrazas.push({traza:this.soluciones[i], calculo:text, resultado:eval(text)})
+			this.grillaTrazas.push({traza:this.soluciones[i], calculo:text, resultado:Number(eval(text).toFixed(2))});
 		}
 	}
 	
