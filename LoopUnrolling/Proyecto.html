@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="Proyecto.css"></link>
+<script type="text/javascript" src="Main.js"></script>
+<script src="Gramatica.js"></script>
+<script src="polacaInversa.js"></script>
+<!-- <script type="text/javascript" src = "Gramatica.js" ></script> -->
+
+
+</head>
+
+
+
+<body>
+
+<!-- 	<script type="text/javascript">     -->
+
+<!-- // 		 alert("Tssting"); -->
+
+<!-- 	</script> -->
+	<!-- </script> 
+
+
+	-->
+
+</body>
+
+
+<img src="LoopU.png" width="1000" height="240" align="middle"
+	alt="Titulo Web Page">
+<label class="label latenciaLabel" >Latencias</label>
+<label class="label cantidadLabel" >Numero Bucles</label>
+<label class="label leftLabel" >Código</label>
+<label class="label centerLabel" >Assembler</label>
+<label class="label rightLabel" >LoopUnrolling</label>
+
+<div class="panel left">
+
+	<form>
+		&nbsp;ADD <input type="number" name="add" value="1"><br>
+	</form>
+	<form>
+		&nbsp;SUB <input type="number" name="sub" value="1"><br>
+	</form>
+	<form>
+		&nbsp;MUL <input type="number" name="mul" value="1"><br>
+	</form>
+	<form>
+		&nbsp;DIV&nbsp; <input type="number" name="div" value="1"><br>
+	</form>
+	<form>
+		&nbsp;LD&nbsp;&nbsp;&nbsp; <input type="number" name="ld" value="1"><br>
+	</form>
+	<form>
+		&nbsp;ST&nbsp; &nbsp;&nbsp;<input type="number" name="st" value="1"><br>
+	</form>
+	<form class="form saltosForm">
+		&nbsp;BNEZ<input type="number" name="bnez" value="1"><br>
+	</form>
+	<form class="form buclesForm">
+		&nbsp;NB&nbsp;&nbsp;&nbsp;<input type="number" name="bucles" value="1"><br>
+	</form>
+</div>
+<div class="panel center">
+	<textarea id="textAreaBig" rows="4" cols="50">
+double A[1000];
+int B[1000];
+for (i = 1 ; i <= 1000 ; i++){
+    A[i] = 5 - A[i];
+    A[i] = A[i] * B[i];
+}
+	</textarea>
+</div>
+<div class="panel right">
+	<textarea id="textAreaSmallL" rows="4" cols="50">Ejecute la herramienta para ver el codigo Assembler
+	</textarea>
+</div>
+<div class="panel righter">
+	<textarea id="textAreaSmallR" rows="4" cols="50">
+	</textarea> 
+</div>
+
+
+<button class="button botonAyuda" style="width:130px;height:39px;" onclick="ayuda()"  >Ayuda !!</button>
+<button class="button botonEjec" style="width:130px;height:39px;" onclick="ejecutar()"  >Ejecutar</button>
+
+<br>
+<br>
+<br>
+</html>
