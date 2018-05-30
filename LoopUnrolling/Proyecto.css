@@ -15,12 +15,14 @@ html,body{
 
 input[type=number] {
 	width: 40%;
-	height: 40px;
-/* 	padding: 8px 10px; */
+/* 	height: 40px; */
+/* 	margin-left: 39px; */
+	margin-left: 49px;
+	height: 30px;
 	box-sizing: border-box;
 	border-radius: 4px;
 	border: 1px solid  #00b359;
-	margin-left: 39px;
+
 	background-color: transparent;
 	color: #ffffff; 
 	text-align: center;
@@ -73,7 +75,14 @@ label{
 }
 .cantidadLabel{
 	position:absolute;
-    top: 605px;
+    top: 534px;
+    left:10px;
+    right:15px;
+    bottom:0px;
+}
+.dispatchLabel{
+	position:absolute;
+    top: 650px;
     left:10px;
     right:15px;
     bottom:0px;
@@ -103,16 +112,43 @@ label{
     bottom:0px;
 }
 
+.selectDispatch{
+	color: #ffffff;  
+	
+	font-stretch: extra-condensed;
+	font-family: "Arial Narrow", sans-serif; 
+
+	text-align: center;
+
+	font-size: 20px;
+	width : 170px;
+	height: 30px;
+
+	border-radius: 4px;
+	background: #00cc66;
+	
+	position:absolute;
+    top: 709px;
+    left:40px;
+    right:15px;
+    bottom:0px;
+}
+
 form {
 	color: #ffffff;  
-	font-size: 25px;
+	
 	font-stretch: extra-condensed;
 	font-family: "Arial Narrow", sans-serif; 
 /* 	display: inline-block; */
 	text-align: center;
 	
-	width : 177px;
-	height: 40px;
+/* 	width : 177px; */
+/* 	height: 40px; */
+/* 	font-size: 25px; */
+	font-size: 20px;
+	width : 170px;
+	height: 30px;
+
 	border-radius: 4px;
 	background: #00cc66;
 	margin-top: 10px;
@@ -124,8 +160,11 @@ form {
 	font-size: 22px;
 	
 }
-.buclesForm{
+.UFMForm{
 	margin-top: 45px;
+}
+.UFXForm{
+	margin-top: 10px;
 }
 
 alert {

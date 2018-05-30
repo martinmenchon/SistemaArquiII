@@ -105,7 +105,7 @@ function calcularCantidadCiclosTarda(lista) {
 			}
 		}
 	}
-	console.log("numCiclos: "+numCiclos);
+	//console.log("numCiclos: "+numCiclos);
 	return numCiclos;
 }
 
@@ -115,14 +115,12 @@ function ayuda(){
 "-  Palabra reservada for en minúsculas.\n"+
 "-  Variables  se deben escribir en mayúsculas (A[], X).\n"+
 "-  El iterador se deben escribir en minúsculas (i).\n"+
-"-  El tipo de un areglo puede ser double o int.\n"+
-"-  Como máximo se puede definir un arreglo de cada tipo.\n\n"+
+"-  El tipo de un areglo solo puede ser int.\n"+
+"-  Como máximo se puede definir un arreglo.\n\n"+
 "Ejemplo de código reconocido:\n\n"+
-"double A[100];\n"+
-"int B[100];\n"+
+"int A[100];\n"+
 "for (i=1; i<= 100 ; i++) {\n"+		
-	"A[i] = A[i] + 6;\n"+			
-	"B[i] = A[i] * Z;\n"+ 						
+	"A[i] = A[i] + 6;\n"+						
 "}\n \n"); 						
 						
 }
@@ -144,30 +142,47 @@ function ejecutar(){
 	this.instructions[6].cycles = document.getElementsByName("bnez")[0].value;//bnez
 	
 	
-	
 	document.getElementById("textAreaSmallL").value=" ";
 	
 	var textoAss="";
-	returnToken(document.getElementById("textAreaBig").value,document.getElementsByName("bucles")[0].value);
+	returnToken(document.getElementById("textAreaBig").value,document.getElementsByName("ufx")[0].value,document.getElementsByName("ufm")[0].value,document.getElementById("dispatchSelect").value);
 	
-	for (i = 0; i < listaAssembler.length; i++) {
-		textoAss+=listaAssembler[i]+"\n";
-
-	}	
-	
-	document.getElementById("textAreaSmallL").value=textoAss;
-		
-	 textoAss="";
+//	for (i = 0; i < listaAssembler.length; i++) {
+//		textoAss+=listaAssembler[i]+"\n";
+//
+//	}	
+//	
+//	document.getElementById("textAreaSmallL").value=textoAss;
+//		
+//	 textoAss="";
+//	
+//	
+//	for (k = 0; k < listaLoopUnrolling.length; k++) {
+//		textoAss+=listaLoopUnrolling[k]+"\n";
+//
+//	}
+//	
+//	document.getElementById("textAreaSmallR").value=textoAss;
 	
 	
 	for (k = 0; k < listaLoopUnrolling.length; k++) {
 		textoAss+=listaLoopUnrolling[k]+"\n";
 
 	}
-	
-	document.getElementById("textAreaSmallR").value=textoAss;
-	console.log("textoAss: "+textoAss);
 
+	document.getElementById("textAreaSmallR").value=textoAss;
+
+	
+ textoAss="";
+
+
+
+for (i = 0; i < listaAssembler.length; i++) {
+	textoAss+=listaAssembler[i]+"\n";
+
+}	
+
+document.getElementById("textAreaSmallL").value=textoAss;
 	
 }
 
@@ -299,16 +314,13 @@ function getRegLoopUnrolling(reg, mapReg) {
 
 }
 
-function loopUnrolling(cantUnrolling, listaAssembler) {
+function loopUnrolling(cantUnrolling, listaAssembler,ufx,ufm,dispatch) {
+
 
 	// los pares arrancando de 0 son el reg real y el impoar que le sigue el
 	// registro libre q se le asigno
 	var mapReg = [];
 	
-//	var indice = 1;
-//	while (listaAssembler[indice - 1] != "LAZO:") {
-//		indice++;
-//	}
 	var indice=0;
 	var cortar=false;
 	while (!cortar) {
@@ -443,13 +455,14 @@ function loopUnrolling(cantUnrolling, listaAssembler) {
 	}
 	
 	
-	listaLoopUnrolling.push("\n \n Cantidad de Ciclos: "+Math.ceil(calcularCantidadCiclosTarda(listaLoopUnrolling) * (numCiclos/cantUnrolling)));
-
-//	console.log("THE MAGIC");
-//	for (k = 0; k < listaLoopUnrolling.length; k++) {// SACAAAAR!!!
-//		console.log(listaLoopUnrolling[k]);
-//
-//	}
+	// LLAMA A EJECUCION PARA QUE HAGA EL CALCULO QUE QUIERE MARCELO
+	
+	console.log("arranca resEjecucion:");
+	
+	var resEjecucion=ejecucion(ufx,ufm,0,dispatch,listaLoopUnrolling);//3 es el Dispatcher hay que modificar	
+	
+	listaLoopUnrolling.push("\n \n Cantidad de Ciclos: "+ Math.ceil(resEjecucion * (numCiclos/cantUnrolling)));
+	//listaLoopUnrolling.push("\n \n Cantidad de Ciclos: "+Math.ceil(calcularCantidadCiclosTarda(listaLoopUnrolling) * (numCiclos/cantUnrolling)));
 
 }
 
@@ -466,10 +479,11 @@ function resetVar(){
 }
 
 
-function returnToken(lines,cantUnrolling) {
+function returnToken(lines,ufx,ufm,dispatch) {
+	
 
-//	console.log(lines);// SACAR
-	// console.log(declareArray(lines,500));//sacar ya
+	var cantUnrolling=Math.max(ufx, ufm);
+
 	inicializarEstructuras();
 	resetVar();
 	
@@ -502,28 +516,15 @@ function returnToken(lines,cantUnrolling) {
 			}
 
 			listaAssembler.push("BNEZ " + "$R1" + "," + "LAZO");// agrego branch
-			loopUnrolling(cantUnrolling, listaAssembler);
+			loopUnrolling(cantUnrolling, listaAssembler,ufx,ufm,dispatch);
 			
-			listaAssembler.push("\n \n Cantidad de ciclos: "+(calcularCantidadCiclosTarda(listaAssembler) * numCiclos));
-
+			//TESTEAAAAAR
+			var res1Ejecucion=ejecucion(ufx,ufm,0,1,listaAssembler);//3 es el Dispatcher hay que modificar
+			listaAssembler.push("\n \n Cantidad de Ciclos : "+Math.ceil(res1Ejecucion * numCiclos));
 			
-//			console.log(" ");
-//			console.log("CODIGO ASSEMBLER; ");
-//			for (i = 0; i < listaAssembler.length; i++) {// SACAAAAR!!!
-//				console.log(listaAssembler[i]);
-//
-//			}
-//
-//			console.log("Cantidad de ciclos que tarda: "
-//					+ calcularCantidadCiclosTarda(listaAssembler) * numCiclos);
-
-			
-
-			// var numeroIteraciones= getNIteraciones();
-			// var estadosFinales= this.setEstadoFinal(get);
-			// this.setCiclios(get);
-			// var grafo = this.getGrafo(get,estadosFinales);
-			// var trazas = this.generarTrazas(grafo,numeroIteraciones);
+			//era lo que andaba antes de TESTEAR
+			//listaAssembler.push("\n \n Cantidad de Ciclos: "+(calcularCantidadCiclosTarda(listaAssembler) * numCiclos));
+						
 
 		}
 	} catch (e) {

@@ -8,6 +8,10 @@
 <script type="text/javascript" src="Main.js"></script>
 <script src="Gramatica.js"></script>
 <script src="polacaInversa.js"></script>
+<script src="ejecucion.js"></script>
+<script src="unidadFuncional.js"></script>
+<script src="dispatcher.js"></script>
+
 <!-- <script type="text/javascript" src = "Gramatica.js" ></script> -->
 
 
@@ -33,7 +37,8 @@
 <img src="LoopU.png" width="1000" height="240" align="middle"
 	alt="Titulo Web Page">
 <label class="label latenciaLabel" >Latencias</label>
-<label class="label cantidadLabel" >Numero Bucles</label>
+<label class="label cantidadLabel" >Unidades Funcionales</label>
+<label class="label dispatchLabel" >Dispatch</label>
 <label class="label leftLabel" >Código</label>
 <label class="label centerLabel" >Assembler</label>
 <label class="label rightLabel" >LoopUnrolling</label>
@@ -61,17 +66,18 @@
 	<form class="form saltosForm">
 		&nbsp;BNEZ<input type="number" name="bnez" value="1"><br>
 	</form>
-	<form class="form buclesForm">
-		&nbsp;NB&nbsp;&nbsp;&nbsp;<input type="number" name="bucles" value="1"><br>
+	<form class="form UFMForm">
+		&nbsp;UFM&nbsp;&nbsp;<input type="number" name="ufm" value="1"><br>
+	</form>
+	<form class="form UFXForm">
+		&nbsp;UFX&nbsp;&nbsp;&nbsp;<input type="number" name="ufx" value="1"><br>
 	</form>
 </div>
 <div class="panel center">
 	<textarea id="textAreaBig" rows="4" cols="50">
-double A[1000];
-int B[1000];
+int A[1000];
 for (i = 1 ; i <= 1000 ; i++){
     A[i] = 5 - A[i];
-    A[i] = A[i] * B[i];
 }
 	</textarea>
 </div>
@@ -84,6 +90,12 @@ for (i = 1 ; i <= 1000 ; i++){
 	</textarea> 
 </div>
 
+<select class="selectDispatch" id="dispatchSelect">
+  <option value="1">1</option>
+  <option value="2">2</option>
+  <option value="4">4</option>
+  <option value="8">8</option>
+</select>
 
 <button class="button botonAyuda" style="width:130px;height:39px;" onclick="ayuda()"  >Ayuda !!</button>
 <button class="button botonEjec" style="width:130px;height:39px;" onclick="ejecutar()"  >Ejecutar</button>
