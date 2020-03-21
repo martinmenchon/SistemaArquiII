@@ -1,0 +1,40 @@
+#mynetwork {
+    position: relative;
+    width: 500px;
+    height: 300px;
+    border: 1px solid lightgray;
+    display:none;
+}
+
+.processor-table {
+    padding: 0 20px 0 0 !important;
+    border: none !important;   
+}
+
+
+
+#table-processor {
+    width: auto;
+    overflow-x: auto;
+}
+
+#table-processor table {
+    display: table-cell;
+    width: auto;
+}
+
+.rpadding-10 {
+    padding-right: 10px;
+}
+
+.bpadding-10 {
+    padding-bottom: 10px;
+}
+
+.lpadding-10{
+    padding-left: 50px;
+}
+
+.uppadding-10{
+    padding-top: 10px;
+}
