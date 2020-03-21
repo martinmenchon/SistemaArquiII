@@ -74,7 +74,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!--The content below is only a placeholder and can be replaced.-->\r\n<!-- el primer grupo me da el color de fondo de la pagina-->\r\n<!DOCTYPE html>\r\n<html>\r\n<head>\r\n<link href=\"https://fonts.googleapis.com/css?family=Asap:400,700|Montserrat:300,400,700|Roboto:300,400,700\" rel=\"stylesheet\">\r\n<script src=\"https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js\"></script>\r\n<style>\r\n\r\n  bootstrap-alert{\r\n  margin: auto;\r\n  width: 280px;\r\n  box-shadow: 1px 1px 3px black;\r\n  }\r\n\r\n  div {\r\n    margin-left: 15px;\r\n  }\r\n    .button-lineas {\r\n        background-color: #1C738D !important;\r\n        border: none !important;\r\n        color: white !important;\r\n        /*padding: 14px 40px;*/\r\n        text-align: center !important;\r\n        text-decoration: none !important;\r\n        display: inline-block !important;\r\n        font-size: 16px !important;\r\n        margin: 4px 2px !important;\r\n        cursor: pointer !important;\r\n        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19) !important;\r\n    }\r\n\r\nbody {\r\n /* background-color: #ECE8D6;  */\r\n}\r\n.button {\r\n  background-color: #1C738D;\r\n  border: 1px solid #1C738D;\r\n  color: white;\r\n  padding: 14px 40px;\r\n  text-align: center;\r\n  text-decoration: none;\r\n  display: inline-block;\r\n  font-size: 16px;\r\n  margin: 4px 2px;\r\n  cursor: pointer;\r\n  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);\r\n}\r\n\r\n.button:hover {\r\n  color: #1C738D;\r\n  background-color: white;\r\n}\r\n\r\nbody{\r\n  font-family: 'Roboto', sans-serif;\r\n}\r\n\r\np.serif {\r\n  font-family: 'Roboto', sans-serif;\r\n  font-size: 30px;\r\n  color: grey;\r\n}\r\n\r\np.title{\r\n  font-family: 'Asap', sans-serif;\r\n  font-weight: 800;\r\n  font-size: 50px;\r\n  color: grey;\r\n}\r\n\r\nh2{\r\n  font-family: 'Roboto', sans-serif;\r\n  font-size: 30px;\r\n  color: grey;\r\n}\r\n\r\n.disabled {\r\n  opacity: 0.6;\r\n  cursor: not-allowed;\r\n}\r\n\r\ninput[type=number] {\r\n  width: 25%;\r\n  padding: 6px 10px;\r\n  margin: 8px 0;\r\n  box-sizing: border-box;\r\n}\r\n\r\n#cantProc{\r\n     background-color: #1c738d0d;\r\n    border: 1px solid #1c738d;\r\n}\r\n\r\n.title-etapa{\r\n display: -webkit-inline-box;\r\n    border: 1px solid #1c738d;\r\n    padding: 20px;\r\n    margin: 15px 0 15px 68px;\r\n}\r\n\r\n</style>\r\n</head>\r\n<body>\r\n  <div id=\"script-id\"></div>\r\n<script src=\"https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js\"></script>\r\n\r\n<div style=\"text-align:center\">\r\n  <p class=\"title\">\r\n    {{ title }}\r\n  </p>\r\n  \r\n  <img width=\"250\" alt=\"Angular Logo\" src=\"assets/img/Logo_UNICEN.gif\">\r\n</div>\r\n\r\n<div>\r\n  <p class=\"serif\">\r\n    Cantidad de Procesadores a Utilizar:\r\n  </p>\r\n    <input type=\"number\" id=\"cantProc\" class=\"form-control\" min=\"0\" name=\"cantProc\" placeholder=\"Cantidad de procesadores elegidos\" >\r\n  </div>\r\n\r\n<div style=\"text-align:left\">\r\n<p class=\"serif\">\r\n    Seleccione los patrones  utilizar:\r\n</p>\r\n  <h4 id=\"algoritmos\">\r\n  <input id=\"p_shuffle\" type=\"button\" class=\"btn btn-info button\" value=\"Perfect Shufle\">\r\n  <input id= \"bit_reversal\" type=\"button\" class=\"btn btn-info button\" value=\"Bit Reversal\">\r\n  <input id= \"butterfly\" type=\"button\" class=\"btn btn-info button\" value=\"Butterfly\">\r\n  <input id= \"barrel\" type=\"button\" class=\"btn btn-info button\" value=\"Barrel\">\r\n  <input id= \"exchange\" type=\"button\" class=\"btn btn-info button\" value=\"Exchange\">\r\n  <input id= \"baseline\" type=\"button\" class=\"btn btn-info button\" value=\"Baseline\">\r\n  </h4>\r\n  \r\n\r\n<div class=\"input-group mb-3\" id=\"input_k\" style='display:none'>\r\n  Seleccione el K o I que desea utilizar para el patron elegido:\r\n  <input id= \"real_value\" type=\"number\" min=\"0\" class=\"form-control\" placeholder=\"valor a utilizar\" aria-label=\"Valor de k o i que desea utilizar\" aria-describedby=\"basic-addon2\">\r\n  <div class=\"input-group-append\">\r\n    <button id=\"confirm_input\" class=\"btn btn-outline-secondary\" type=\"button\">Confirmar</button>\r\n  </div>\r\n</div>\r\n\r\n\r\n  <h5>\r\n  <input id= \"start\" type=\"button\" class=\"btn btn-info button\" value=\"START\">\r\n\r\n  <input id= \"restart\" type=\"button\" class=\"btn btn-info button\" value=\"RESET\">\r\n\r\n  </h5>\r\n  \r\n</div>\r\n\r\n\r\n\r\n\t<style type=\"text/css\">\r\n\t\tbutton{\r\n\t\t    background-color: #1C738D;\r\n\t\t    border: none;\r\n\t\t    color: white;\r\n\t\t    /*padding: 14px 40px;*/\r\n\t\t    text-align: center;\r\n\t\t    text-decoration: none;\r\n\t\t    display: inline-block;\r\n\t\t    font-size: 16px;\r\n\t\t    margin: 4px 2px;\r\n\t\t    cursor: pointer;\r\n\t\t    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);\r\n\t\t}\r\n\t\t.button-cargar {padding: 14px 40px;}\r\n\t\tbody { /* background-color: #ECE8D6;*/}\r\n\t\tli {padding: 3px; border: 1px solid #1c738d6b; list-style: none;}\r\n\t</style>\r\n<div style=\"margin-bottom: 20px;\">\r\n\t<button id=\"cargar\" class=\"btn btn-info button\">DIBUJAR ETAPAS</button>\r\n</div>\r\n<div id=\"titles-etapas\">\r\n</div>\r\n<div id=\"total\" style=\"display: -webkit-box;\">\r\n\t<div>\r\n\r\n\t</div>\r\n</div>\r\n\r\n<div class=\"col-sm-10\">\r\n    <div class=\"alert alert-info\">\r\n    <strong>INFO: </strong> Desarrollado por los alumnos Suarez Elvis y Moris Eugenia.\r\n<strong>CÁTEDRA:</strong> \r\n  <a target=\"_blank\" rel=\"noopener\" href=\"http://arqui2.alumnos.exa.unicen.edu.ar/\"> Arquitectura de Computadoras y Técnicas Digitales</a>  </div>\r\n</div>\r\n\r\n\r\n<router-outlet></router-outlet>\r\n"
+module.exports = "<!--The content below is only a placeholder and can be replaced.-->\r\n<!-- el primer grupo me da el color de fondo de la pagina-->\r\n<!DOCTYPE html>\r\n<html>\r\n<head>\r\n<link href=\"https://fonts.googleapis.com/css?family=Asap:400,700|Montserrat:300,400,700|Roboto:300,400,700\" rel=\"stylesheet\">\r\n<script src=\"https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js\"></script>\r\n<!-- Estaba debajo del primer div -->\r\n<script src=\"https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js\"></script>\r\n<style>\r\n\r\n  /* div[_ngcontent-c0] { margin: auto;} */\r\n  bootstrap-alert{ margin: auto; width: 280px; box-shadow: 1px 1px 3px black;}\r\n    .button-lineas { background-color: #1C738D !important; border: none !important;color: white !important;text-align: center !important;\r\n        text-decoration: none !important; display: inline-block !important; font-size: 16px !important; margin: 4px 2px !important;\r\n        cursor: pointer !important; box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19) !important; }\r\n.button { background-color: #1C738D;border: 1px solid #1C738D; color: white;padding: 14px 40px; text-align: center; text-decoration: none;\r\n  display: inline-block;font-size: 16px; margin: 4px 2px; cursor: pointer; box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);}\r\n.button:hover,.button:focus { color: #1C738D; background-color: white;}\r\nbody{ font-family: 'Roboto', sans-serif;}\r\np.serif { font-family: 'Roboto', sans-serif; font-size: 30px; color: grey;}\r\np.title{ font-family: 'Asap', sans-serif; font-weight: 800; font-size: 50px; color: grey;}\r\nh2{  font-family: 'Roboto', sans-serif; font-size: 30px; color: grey;}\r\n.disabled { opacity: 0.6; cursor: not-allowed;}\r\ninput[type=number] { width: 25%; padding: 6px 10px; margin: 8px 0; box-sizing: border-box;}\r\n#cantProc{ background-color: #1c738d0d;  border: 1px solid #1c738d;}\r\n.title-etapa{display: -webkit-inline-box;  border: 1px solid #1c738d; padding: 20px; margin: 15px 0 15px 68px;}\r\n\r\nbutton{background-color: #1C738D;  border: none; color: white;text-align: center;text-decoration: none;display: inline-block;\r\n        font-size: 16px; margin: 4px 2px; cursor: pointer; box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);}\r\n.button-cargar {padding: 14px 40px;}\r\nli {padding: 3px; border: 1px solid #1c738d6b; list-style: none;}\r\n</style>\r\n</head>\r\n<body>\r\n<div id=\"script-id\"></div>\r\n\r\n<div class=\"container\">\r\n  <div class=\"\" style=\"text-align:center\">\r\n    <p class=\"title\">\r\n      Bienvenidos al {{ title }}\r\n    </p>\r\n    <img width=\"250\" alt=\"Angular Logo\" src=\"assets/img/Logo_UNICEN.gif\">\r\n  </div>\r\n\r\n  <div class=\"\">\r\n    <p class=\"serif\">Cantidad de Procesadores a Utilizar: </p>\r\n    <!--<input class=\"form-control\" id=\"cantProc\" min=\"0\" name=\"cantProc\" placeholder=\"Cantidad de procesadores elegidos\" type=\"number\">-->\r\n      <select id=\"cantProc\" name=\"cantProc\" class=\"form-control\">\r\n        <option value=\"\" disabled selected hidden>Cantidad de procesadores elegidos</option>\r\n        <option value=\"2\">2</option>\r\n        <option value=\"4\">4</option>\r\n        <option value=\"8\">8</option>\r\n        <option value=\"16\">16</option>\r\n      </select>\r\n  </div>\r\n\r\n  <div class=\"\"  style=\"text-align:left\">\r\n    <p class=\"serif\">Seleccione los patrones  utilizar:</p>\r\n    <h4>\r\n      <input id=\"p_shuffle\" type=\"button\" class=\"btn btn-info button\" value=\"Perfect Shufle\">\r\n      <input id= \"bit_reversal\" type=\"button\" class=\"btn btn-info button\" value=\"Bit Reversal\">\r\n      <input id= \"butterfly\" type=\"button\" class=\"btn btn-info button\" value=\"Butterfly\">\r\n      <input id= \"barrel\" type=\"button\" class=\"btn btn-info button\" value=\"Barrel\">\r\n      <input id= \"exchange\" type=\"button\" class=\"btn btn-info button\" value=\"Exchange\">\r\n      <input id= \"baseline\" type=\"button\" class=\"btn btn-info button\" value=\"Baseline\">\r\n    </h4>\r\n      \r\n    <div class=\"input-group mb-3\" id=\"input_k\" style='display:none'>\r\n      Seleccione el K o I que desea utilizar para el patron elegido:\r\n      <input id= \"real_value\" type=\"number\" min=\"0\" class=\"form-control\" placeholder=\"valor a utilizar\" aria-label=\"Valor de k o i que desea utilizar\" aria-describedby=\"basic-addon2\">\r\n      <div class=\"input-group-append\">\r\n        <button id=\"confirm_input\" class=\"btn btn-outline-secondary\" type=\"button\">Confirmar</button>\r\n      </div>\r\n    </div>\r\n    \r\n    <h5>\r\n      <input id= \"start\" type=\"button\" class=\"btn btn-info button\" value=\"START\">\r\n      <input id= \"restart\" type=\"button\" class=\"btn btn-info button\" value=\"RESET\">\r\n    </h5>\r\n  </div>\r\n\r\n\r\n<div class=\"\" style=\"margin-bottom: 20px;\">\r\n  <button id=\"cargar\" class=\"btn btn-info button\">DIBUJAR ETAPAS</button>\r\n</div>\r\n<div id=\"titles-etapas\">\r\n</div>\r\n<div id=\"total\" class=\"\" style=\"display: -webkit-box;\">\r\n  <div>\r\n\r\n  </div>\r\n</div>\r\n\r\n<div class=\"row\">\r\n  <h2>\r\n  Link a la pagina de la catedra:\r\n  <a target=\"_blank\" rel=\"noopener\" href=\"http://arqui2.alumnos.exa.unicen.edu.ar/\">Arquitectura de Computadoras y Técnicas Digitales</a></h2>\r\n\r\n\r\n  <div class=\"alert alert-info\">\r\n    <strong>Info: </strong> Desarrollado por los alumnos Suarez Elvis y Moris Eugenia.\r\n  </div>\r\n</div>\r\n\r\n\r\n<router-outlet></router-outlet>\r\n\r\n\r\n</div>\r\n</body>"
 
 /***/ }),
 
@@ -105,16 +105,11 @@ var etapas;
 var lista;
 var cantidad_bits;
 var dict = {
-    max_perfect: cant_proc,
-    max_reversal: cantidad_bits,
-    max_butterfly: cantidad_bits,
-    max_exchage: cantidad_bits,
-    max_barrel: cant_proc,
-    max_baseline: cant_proc - 1,
+    max_ancho: cantidad_bits,
 };
 var AppComponent = /** @class */ (function () {
     function AppComponent() {
-        this.title = 'Simulador de Redes de Interconexiones';
+        this.title = 'Simulador de Interconexiones';
     }
     AppComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -140,10 +135,8 @@ function validarEntero(valor) {
         return true;
     }
 }
-function verificar_limite(valor, max) {
-    var valor_aux = parseInt(valor);
-    var max_aux = parseInt(max);
-    if ((valor_aux <= max_aux) && (valor_aux >= 0)) {
+function verificar_limite(valor) {
+    if ((valor <= cantidad_bits) && (valor > 0)) {
         return true;
     }
     else {
@@ -156,44 +149,23 @@ function showAlerts() {
     //THIS IS JS ALERT
     //alert('success! (JS alert)');
 }
-function get_input(max) {
+function get_input() {
     //Se pide y se guarda el input necesario para el procesamiento
-    deshabilitar_botones();
     //poner alert con lo que se pide?
     document.getElementById('input_k').style.display = 'block';
     document.getElementById('confirm_input').onclick = function (evt) {
-        deshabilitar_botones(false);
         var new_input = jquery__WEBPACK_IMPORTED_MODULE_2__("#real_value").val();
         if (validarEntero(new_input) == false) {
             alert("El valor debe ser un numero positivo");
         }
-        else if (verificar_limite(new_input, max) == false) {
-            alert("El valor debe encontrarse entre los limites 0 y " + max);
+        else if (verificar_limite(new_input) == false) {
+            alert("El valor debe encontrarse entre los limites 0 y " + cantidad_bits);
         }
         else {
             input_extra.push(new_input);
             document.getElementById('input_k').style.display = 'none';
         }
     };
-}
-function deshabilitar_botones(desabilitar) {
-    if (desabilitar === void 0) { desabilitar = true; }
-    if (desabilitar) {
-        jquery__WEBPACK_IMPORTED_MODULE_2__('#p_shuffle').prop('disabled', true);
-        jquery__WEBPACK_IMPORTED_MODULE_2__('#bit_reversal').prop('disabled', true);
-        jquery__WEBPACK_IMPORTED_MODULE_2__('#butterfly').prop('disabled', true);
-        jquery__WEBPACK_IMPORTED_MODULE_2__('#barrel').prop('disabled', true);
-        jquery__WEBPACK_IMPORTED_MODULE_2__('#exchange').prop('disabled', true);
-        jquery__WEBPACK_IMPORTED_MODULE_2__('#baseline').prop('disabled', true);
-    }
-    else {
-        jquery__WEBPACK_IMPORTED_MODULE_2__('#p_shuffle').prop('disabled', false);
-        jquery__WEBPACK_IMPORTED_MODULE_2__('#bit_reversal').prop('disabled', false);
-        jquery__WEBPACK_IMPORTED_MODULE_2__('#butterfly').prop('disabled', false);
-        jquery__WEBPACK_IMPORTED_MODULE_2__('#barrel').prop('disabled', false);
-        jquery__WEBPACK_IMPORTED_MODULE_2__('#exchange').prop('disabled', false);
-        jquery__WEBPACK_IMPORTED_MODULE_2__('#baseline').prop('disabled', false);
-    }
 }
 window.onload = function () {
     //primero deshabilito los botones
@@ -209,9 +181,9 @@ window.onload = function () {
             alert("Debe reiniciar primero.");
         }
         else {
+            get_input();
             patrones.push(0);
-            cant_proc = jquery__WEBPACK_IMPORTED_MODULE_2__("#cantProc").val();
-            get_input(cant_proc);
+            //cant_proc = $("#cantProc").val();
             verificarBoton();
             agregarTitulo("p_shuffle");
         }
@@ -236,11 +208,9 @@ window.onload = function () {
             alert("Debe reiniciar primero.");
         }
         else {
+            get_input();
             patrones.push(2);
-            cant_proc = jquery__WEBPACK_IMPORTED_MODULE_2__("#cantProc").val();
-            var cantidad_bits_bin = (parseInt(cant_proc)).toString(2); // CAMBIO A PEDIR LOS BITS
-            cantidad_bits = (cantidad_bits_bin.length) - 1;
-            get_input(cantidad_bits);
+            //cant_proc = $("#cantProc").val();
             verificarBoton();
             agregarTitulo("butterfly");
         }
@@ -250,11 +220,9 @@ window.onload = function () {
             alert("Debe reiniciar primero.");
         }
         else {
+            get_input();
             patrones.push(3);
-            cant_proc = jquery__WEBPACK_IMPORTED_MODULE_2__("#cantProc").val();
-            var cantidad_bits_bin = (parseInt(cant_proc)).toString(2); // CAMBIO A PEDIR LOS BITS
-            cantidad_bits = (cantidad_bits_bin.length) - 1;
-            get_input(cantidad_bits);
+            //cant_proc = $("#cantProc").val(); 
             verificarBoton();
             agregarTitulo("exchange");
         }
@@ -264,9 +232,9 @@ window.onload = function () {
             alert("Debe reiniciar primero.");
         }
         else {
+            get_input();
             patrones.push(4);
-            cant_proc = jquery__WEBPACK_IMPORTED_MODULE_2__("#cantProc").val();
-            get_input(cant_proc);
+            //cant_proc = $("#cantProc").val();
             verificarBoton();
             agregarTitulo("barrel");
         }
@@ -276,11 +244,9 @@ window.onload = function () {
             alert("Debe reiniciar primero.");
         }
         else {
+            get_input();
             patrones.push(5);
-            cant_proc = jquery__WEBPACK_IMPORTED_MODULE_2__("#cantProc").val();
-            var cantidad_bits_bin = (parseInt(cant_proc)).toString(2); // CAMBIO A PEDIR LOS BITS
-            cantidad_bits = (cantidad_bits_bin.length) - 1;
-            get_input(cantidad_bits - 1);
+            //cant_proc = $("#cantProc").val();
             verificarBoton();
             agregarTitulo("baseline");
         }
@@ -360,8 +326,6 @@ function restart_values() {
     document.getElementById("total").innerHTML = "";
     document.getElementById("titles-etapas").innerHTML = "";
     document.getElementById("titles-etapas").className = "";
-    document.getElementById('input_k').style.display = 'none';
-    deshabilitar_botones(false);
 }
 function verificarBoton() {
     if ((patrones.length > 0) && ((jquery__WEBPACK_IMPORTED_MODULE_2__("#cantProc").val() != undefined) && (jquery__WEBPACK_IMPORTED_MODULE_2__("#cantProc").val() != ""))) {
@@ -524,19 +488,6 @@ function baseline(input, processors, k) {
         alert("K más grande que los bits.");
     }
 }
-/*function barrel(input,processor,k){
-    var output=[];
-    var ancho = input.length
-    for (var i=0; i<k;i++){
-        output.push(input[ancho-k+i]); //obtengo los valores de atras / debo mantener el orden
-    }
-    var total = input.length - k;
-    for (var j=0; j<total; j++){
-        output.push(input.shift());//elimino el primer elemento del arreglo
-    }
-    console.log(output);
-    return output;
-}*/
 function barrel(input, processor, k) {
     var output = [];
     var ancho = input.length;
@@ -927,7 +878,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\USUARIO\Desktop\proyecto-master\src\main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! C:\Users\USUARIO\Desktop\Martin\proyecto-master\src\main.ts */"./src/main.ts");
 
 
 /***/ })
