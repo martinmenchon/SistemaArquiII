@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/SistemaArquiII/Comparacion_de_rendimientos/static/css/main.dfca195d.chunk.css",
+    "main.js": "/SistemaArquiII/Comparacion_de_rendimientos/static/js/main.70f18d3e.chunk.js",
+    "main.js.map": "/SistemaArquiII/Comparacion_de_rendimientos/static/js/main.70f18d3e.chunk.js.map",
+    "runtime-main.js": "/SistemaArquiII/Comparacion_de_rendimientos/static/js/runtime-main.38764a49.js",
+    "runtime-main.js.map": "/SistemaArquiII/Comparacion_de_rendimientos/static/js/runtime-main.38764a49.js.map",
+    "static/js/2.21cfbb69.chunk.js": "/SistemaArquiII/Comparacion_de_rendimientos/static/js/2.21cfbb69.chunk.js",
+    "static/js/2.21cfbb69.chunk.js.map": "/SistemaArquiII/Comparacion_de_rendimientos/static/js/2.21cfbb69.chunk.js.map",
+    "index.html": "/SistemaArquiII/Comparacion_de_rendimientos/index.html",
+    "precache-manifest.a576e817f4bd17422dab8a57c576bc82.js": "/SistemaArquiII/Comparacion_de_rendimientos/precache-manifest.a576e817f4bd17422dab8a57c576bc82.js",
+    "service-worker.js": "/SistemaArquiII/Comparacion_de_rendimientos/service-worker.js",
+    "static/css/main.dfca195d.chunk.css.map": "/SistemaArquiII/Comparacion_de_rendimientos/static/css/main.dfca195d.chunk.css.map",
+    "static/media/geometrica.png": "/SistemaArquiII/Comparacion_de_rendimientos/static/media/geometrica.ae04fc6e.png",
+    "static/media/media.png": "/SistemaArquiII/Comparacion_de_rendimientos/static/media/media.59ee354d.png",
+    "static/media/ponderada.png": "/SistemaArquiII/Comparacion_de_rendimientos/static/media/ponderada.c9804043.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.38764a49.js",
+    "static/js/2.21cfbb69.chunk.js",
+    "static/css/main.dfca195d.chunk.css",
+    "static/js/main.70f18d3e.chunk.js"
+  ]
+}
