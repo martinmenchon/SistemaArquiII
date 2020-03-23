@@ -1,13 +1,15 @@
 {
-  "main.css": "/SistemaArquiII/Perfiles_de_paralelismo/static/css/main.0ea70dc0.chunk.css",
-  "main.js": "/SistemaArquiII/Perfiles_de_paralelismo/static/js/main.3e837f5c.chunk.js",
-  "main.js.map": "/SistemaArquiII/Perfiles_de_paralelismo/static/js/main.3e837f5c.chunk.js.map",
-  "runtime~main.js": "/SistemaArquiII/Perfiles_de_paralelismo/static/js/runtime~main.e9246427.js",
-  "runtime~main.js.map": "/SistemaArquiII/Perfiles_de_paralelismo/static/js/runtime~main.e9246427.js.map",
-  "static/js/2.a2771d8b.chunk.js": "/SistemaArquiII/Perfiles_de_paralelismo/static/js/2.a2771d8b.chunk.js",
-  "static/js/2.a2771d8b.chunk.js.map": "/SistemaArquiII/Perfiles_de_paralelismo/static/js/2.a2771d8b.chunk.js.map",
-  "index.html": "/SistemaArquiII/Perfiles_de_paralelismo/index.html",
-  "precache-manifest.81621884c127f6eea6edd9f6e85572ac.js": "/SistemaArquiII/Perfiles_de_paralelismo/precache-manifest.81621884c127f6eea6edd9f6e85572ac.js",
-  "service-worker.js": "/SistemaArquiII/Perfiles_de_paralelismo/service-worker.js",
-  "static/css/main.0ea70dc0.chunk.css.map": "/SistemaArquiII/Perfiles_de_paralelismo/static/css/main.0ea70dc0.chunk.css.map"
+  "files": {
+    "main.css": "/SistemaArquiII/Perfiles_de_paralelismo/static/css/main.dfca195d.chunk.css",
+    "main.js": "/SistemaArquiII/Perfiles_de_paralelismo/static/js/main.fa57a921.chunk.js",
+    "main.js.map": "/SistemaArquiII/Perfiles_de_paralelismo/static/js/main.fa57a921.chunk.js.map",
+    "runtime-main.js": "/SistemaArquiII/Perfiles_de_paralelismo/static/js/runtime-main.700be1b6.js",
+    "runtime-main.js.map": "/SistemaArquiII/Perfiles_de_paralelismo/static/js/runtime-main.700be1b6.js.map",
+    "static/js/2.7637701b.chunk.js": "/SistemaArquiII/Perfiles_de_paralelismo/static/js/2.7637701b.chunk.js",
+    "static/js/2.7637701b.chunk.js.map": "/SistemaArquiII/Perfiles_de_paralelismo/static/js/2.7637701b.chunk.js.map",
+    "index.html": "/SistemaArquiII/Perfiles_de_paralelismo/index.html",
+    "precache-manifest.74450852efb26f154ddc3caac5f24007.js": "/SistemaArquiII/Perfiles_de_paralelismo/precache-manifest.74450852efb26f154ddc3caac5f24007.js",
+    "service-worker.js": "/SistemaArquiII/Perfiles_de_paralelismo/service-worker.js",
+    "static/css/main.dfca195d.chunk.css.map": "/SistemaArquiII/Perfiles_de_paralelismo/static/css/main.dfca195d.chunk.css.map"
+  }
 }
