@@ -45,7 +45,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class='container-fluid'>\n    <div class='row'>\n      <div class='col-sm-6'>\n        <div class='row'>\n          <div class=\"col-sm-4\">\n            <h4>Instrucciones por ciclo </h4>\n          </div>\n          <div class=\"col-sm-4\">\n            <h4>Estaciones de reserva </h4>\n          </div>\n          <div class=\"col-sm-4\">\n            <h4>Unidades Funcionales </h4>\n          </div>\n  \n        </div>\n        <div class=\"row\">\n          <div class=\"col-sm-4\">\n            <select class=\"form-control\" (change)=\"despacho.tamano= $event.target.value\" [disabled]=\"instruccionesPorCicloDisabled\">\n              <option *ngFor=\"let cantidad of cant\" value={{cantidad}}>\n                {{cantidad}}\n              </option>\n            </select>\n          </div>\n  \n          <div class=\"col-sm-4\">\n            <select class=\"form-control\" (change)=\"estaciones.tamano= $event.target.value\" [disabled]=\"instruccionesPorCicloDisabled\">\n              <option *ngFor=\"let cantidad of cant\" value={{cantidad}}>\n                {{cantidad}}\n              </option>\n            </select>\n          </div>\n  \n          <div class=\"col-sm-4\">\n            <select class=\"form-control\" (change)=\"unidadesFuncionales.tamano= $event.target.value\" [disabled]=\"instruccionesPorCicloDisabled\">\n              <option *ngFor=\"let cantidad of cant\" value={{cantidad}}>\n                {{cantidad}}\n              </option>\n            </select>\n          </div>\n        </div><br />\n        <h4>Ciclos por instruccion </h4>\n        <div class=\"row\">\n          <div class=\"col-sm-2\">\n            <h4 class=\"text-center\">ADD </h4>\n          </div>\n          <div class=\"col-sm-2\">\n            <h4 class=\"text-center\">SUB</h4>\n          </div>\n          <div class=\"col-sm-2\">\n            <h4 class=\"text-center\">MUL</h4>\n          </div>\n          <div class=\"col-sm-2\">\n            <h4 class=\"text-center\">DIV</h4>\n          </div>\n          <div class=\"col-sm-2\">\n            <h4 class=\"text-center\">ST</h4>\n          </div>\n          <div class=\"col-sm-2\">\n            <h4 class=\"text-center\">LD</h4>\n          </div>\n        </div>\n        <div class=\"row\">\n          <div class=\"col-sm-2\">\n            <select class=\"form-control\" (change)=\"tipos[0].ciclos= $event.target.value\" [disabled]=\"instruccionesPorCicloDisabled\">\n              <option *ngFor=\"let cantidad of cant\" value={{cantidad}}>\n                {{cantidad}}\n              </option>\n            </select>\n          </div>\n          <div class=\"col-sm-2\">\n            <select class=\"form-control\" (change)=\"tipos[1].ciclos= $event.target.value\" [disabled]=\"instruccionesPorCicloDisabled\">\n              <option *ngFor=\"let cantidad of cant\" value={{cantidad}}>\n                {{cantidad}}\n              </option>\n            </select>\n          </div>\n          <div class=\"col-sm-2\">\n            <select class=\"form-control\" (change)=\"tipos[2].ciclos= $event.target.value\" [disabled]=\"instruccionesPorCicloDisabled\">\n              <option *ngFor=\"let cantidad of cant\" value={{cantidad}}>\n                {{cantidad}}\n              </option>\n            </select>\n          </div>\n          <div class=\"col-sm-2\">\n            <select class=\"form-control\" (change)=\"tipos[3].ciclos= $event.target.value\" [disabled]=\"instruccionesPorCicloDisabled\">\n              <option *ngFor=\"let cantidad of cant\" value={{cantidad}}>\n                {{cantidad}}\n              </option>\n            </select>\n          </div>\n          <div class=\"col-sm-2\">\n            <select class=\"form-control\" (change)=\"tipos[4].ciclos= $event.target.value\" [disabled]=\"instruccionesPorCicloDisabled\">\n              <option *ngFor=\"let cantidad of cant\" value={{cantidad}}>\n                {{cantidad}}\n              </option>\n            </select>\n          </div>\n          <div class=\"col-sm-2\">\n            <select class=\"form-control\" (change)=\"tipos[5].ciclos= $event.target.value\" [disabled]=\"instruccionesPorCicloDisabled\">\n              <option *ngFor=\"let cantidad of cant\" value={{cantidad}}>\n                {{cantidad}}\n              </option>\n            </select>\n          </div>\n        </div>\n      </div>\n      <div class='col-sm-6 body-content'>\n        <h4 class=\"text-center\">Instrucciones</h4>\n        <div class=\"row\">\n          <div class=\"col-sm-2\">\n            <select class=\"form-control\" (change)=\"setTipo($event.target.value)\">\n              <option value=\"0\">Type</option>\n              <option *ngFor=\"let tipo of tipos\" value={{tipo.name}}>\n                {{tipo.name}}\n              </option>\n            </select>\n          </div>\n          <div class=\"col-sm-2\">\n            <select class=\"form-control\" (change)=\"regDest=$event.target.value;verificarRegistros();\">\n              <option value=\"0\">RegDest</option>\n              <option *ngFor=\"let reg of registros\" value={{reg}}>\n                {{reg}}\n              </option>\n            </select>\n          </div>\n          <div class=\"col-sm-2\">\n            <select class=\"form-control\" (change)=\"reg1=$event.target.value;verificarRegistros();\">\n              <option value=\"0\">Reg1</option>\n              <option *ngFor=\"let reg of registros\" value={{reg}}>\n                {{reg}}\n              </option>\n            </select>\n          </div>\n          <div class=\"col-sm-2\">\n            <select class=\"form-control\" id=\"reg2\" (change)=\"reg2=$event.target.value;verificarRegistros();\">\n              <option *ngFor=\"let reg of registros\" value={{reg}}>\n                {{reg}}\n              </option>\n            </select>\n          </div>\n          <div class=\"col-sm-3\">\n            <button id=\"addBtn\" type=\"button\" class=\"btn btn-primary\" disabled (click)=\"addInstruccion()\">ADD</button>\n          </div>\n          </div>\n          <table class=\"table table-striped\">\n            <thead>\n              <tr>\n                <th>Instruccion</th>\n                <th>Tipo</th>\n                <th>Reg dest</th>\n                <th>Reg 1</th>\n                <th>Reg 2</th>\n              </tr>\n            </thead>\n            <tbody>\n              <tr *ngFor=\"let i of instrucciones\">\n                <td>{{i.name}}</td>\n                <td>{{i.tipo.name}}</td>\n                <td>{{getRegDest(i.tipo.name,i.regDest)}}</td>\n                <td>{{getReg1(i.tipo.name,i.reg1)}}</td>\n                <td>{{i.reg2}}</td>\n              </tr>\n            </tbody>\n          </table>\n        </div>\n      </div><br />\n        <button [disabled]=\"ciclosDisabled()\" type=\"button\" class=\"btn btn-primary\" (click)=\"generarRob()\">Ciclo</button>\n        <button type=\"button\" class=\"btn btn-secondary\" onClick=\"window.location.reload();\">Reset</button>\n        <table class='table table-bordered'>\n          <thead>\n            <tr>\n              <th>Ciclo</th>\n              <th attr.colspan=\"{{despacho.tamano}}\">Despacho</th>\n              <th attr.colspan=\"{{estaciones.tamano}}\">Estaciones</th>\n              <th attr.colspan=\"{{unidadesFuncionales.tamano}}\">UF</th>\n              <th attr.colspan=\"{{unidadesFuncionales.tamano+estaciones.tamano}}\">ROB</th>\n            </tr>\n          </thead>\n          <tbody>\n            <tr *ngFor=\"let c of ciclos; let i = index\" >\n              <ng-container>\n                <th>\n                  {{i}}\n                </th>\n                <td *ngFor=\"let instr of c.despacho.instrucciones\">\n                  {{instr.name}}\n                </td>\n                <td *ngFor=\"let instru of c.estaciones.instrucciones\">\n                  {{instru.name}}\n                </td>\n                <td *ngFor=\"let instru of c.unidadesFuncionales.instrucciones\">\n                  {{instru.name}}\n                </td>\n                <td *ngFor=\"let instru of c.celdas.instrucciones\">\n                  {{instru.getName()+ ' '}}{{' ' + instru.getEstado()}}\n                </td>\n              </ng-container>\n            </tr>\n  \n          </tbody>\n        </table>\n      </div>\n  ");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class='container-fluid'>\n  <div class='row' style='background-color: #1f7ed0;color: white; box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);\n  -moz-box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);\n  -webkit-box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);\n  margin: auto;\n  padding: 10px;'>\n    <h1>Simulador de buffer de reordenamiento</h1>\n  </div>\n    <div class='row'>\n      <div class='col-sm-6'>\n        <div class='row'>\n          <div class=\"col-sm-4\">\n            <h4>Grado </h4>\n          </div>\n          <div class=\"col-sm-4\">\n            <h4>Estaciones de reserva </h4>\n          </div>\n          <div class=\"col-sm-4\">\n            <h4>Unidades Funcionales </h4>\n          </div>\n  \n        </div>\n        <div class=\"row\">\n          <div class=\"col-sm-4\">\n            <select class=\"form-control\" (change)=\"despacho.tamano= $event.target.value\" [disabled]=\"instruccionesPorCicloDisabled\">\n              <option *ngFor=\"let cantidad of cant\" value={{cantidad}}>\n                {{cantidad}}\n              </option>\n            </select>\n          </div>\n  \n          <div class=\"col-sm-4\">\n            <select class=\"form-control\" (change)=\"estaciones.tamano= $event.target.value\" [disabled]=\"instruccionesPorCicloDisabled\">\n              <option *ngFor=\"let cantidad of cant\" value={{cantidad}}>\n                {{cantidad}}\n              </option>\n            </select>\n          </div>\n  \n          <div class=\"col-sm-4\">\n            <select class=\"form-control\" (change)=\"unidadesFuncionales.tamano= $event.target.value\" [disabled]=\"instruccionesPorCicloDisabled\">\n              <option *ngFor=\"let cantidad of cant\" value={{cantidad}}>\n                {{cantidad}}\n              </option>\n            </select>\n          </div>\n        </div><br />\n        <h4>Ciclos por instruccion </h4>\n        <div class=\"row\">\n          <div class=\"col-sm-2\">\n            <h4 class=\"text-center\">ADD </h4>\n          </div>\n          <div class=\"col-sm-2\">\n            <h4 class=\"text-center\">SUB</h4>\n          </div>\n          <div class=\"col-sm-2\">\n            <h4 class=\"text-center\">MUL</h4>\n          </div>\n          <div class=\"col-sm-2\">\n            <h4 class=\"text-center\">DIV</h4>\n          </div>\n          <div class=\"col-sm-2\">\n            <h4 class=\"text-center\">ST</h4>\n          </div>\n          <div class=\"col-sm-2\">\n            <h4 class=\"text-center\">LD</h4>\n          </div>\n        </div>\n        <div class=\"row\">\n          <div class=\"col-sm-2\">\n            <select class=\"form-control\" (change)=\"tipos[0].ciclos= $event.target.value\" [disabled]=\"instruccionesPorCicloDisabled\">\n              <option *ngFor=\"let cantidad of cant\" value={{cantidad}}>\n                {{cantidad}}\n              </option>\n            </select>\n          </div>\n          <div class=\"col-sm-2\">\n            <select class=\"form-control\" (change)=\"tipos[1].ciclos= $event.target.value\" [disabled]=\"instruccionesPorCicloDisabled\">\n              <option *ngFor=\"let cantidad of cant\" value={{cantidad}}>\n                {{cantidad}}\n              </option>\n            </select>\n          </div>\n          <div class=\"col-sm-2\">\n            <select class=\"form-control\" (change)=\"tipos[2].ciclos= $event.target.value\" [disabled]=\"instruccionesPorCicloDisabled\">\n              <option *ngFor=\"let cantidad of cant\" value={{cantidad}}>\n                {{cantidad}}\n              </option>\n            </select>\n          </div>\n          <div class=\"col-sm-2\">\n            <select class=\"form-control\" (change)=\"tipos[3].ciclos= $event.target.value\" [disabled]=\"instruccionesPorCicloDisabled\">\n              <option *ngFor=\"let cantidad of cant\" value={{cantidad}}>\n                {{cantidad}}\n              </option>\n            </select>\n          </div>\n          <div class=\"col-sm-2\">\n            <select class=\"form-control\" (change)=\"tipos[4].ciclos= $event.target.value\" [disabled]=\"instruccionesPorCicloDisabled\">\n              <option *ngFor=\"let cantidad of cant\" value={{cantidad}}>\n                {{cantidad}}\n              </option>\n            </select>\n          </div>\n          <div class=\"col-sm-2\">\n            <select class=\"form-control\" (change)=\"tipos[5].ciclos= $event.target.value\" [disabled]=\"instruccionesPorCicloDisabled\">\n              <option *ngFor=\"let cantidad of cant\" value={{cantidad}}>\n                {{cantidad}}\n              </option>\n            </select>\n          </div>\n        </div>\n      </div>\n      <div class='col-sm-6 body-content'>\n        <h4 class=\"text-center\">Instrucciones</h4>\n        <div class=\"row\">\n          <div class=\"col-sm-3\">\n            <select class=\"form-control\" (change)=\"setTipo($event.target.value)\">\n              <option *ngFor=\"let tipo of tipos\" value={{tipo.name}}>\n                {{tipo.name}}\n              </option>\n            </select>\n          </div>\n          <div class=\"col-sm-2\">\n            <select class=\"form-control\" (change)=\"regDest=$event.target.value;this.instruccionesPorCicloDisabled = true;\">\n              <option *ngFor=\"let reg of registros\" value={{reg}}>\n                {{reg}}\n              </option>\n            </select>\n          </div>\n          <div class=\"col-sm-2\">\n            <select class=\"form-control\" (change)=\"reg1=$event.target.value;this.instruccionesPorCicloDisabled = true;\">\n              <option *ngFor=\"let reg of registros\" value={{reg}}>\n                {{reg}}\n              </option>\n            </select>\n          </div>\n          <div class=\"col-sm-2\">\n            <select class=\"form-control\" id=\"reg2\" (change)=\"reg2=$event.target.value;this.instruccionesPorCicloDisabled = true;\">\n              <option *ngFor=\"let reg of registros\" value={{reg}}>\n                {{reg}}\n              </option>\n            </select>\n          </div>\n          <div class=\"col-sm-3\">\n            <button id=\"addBtn\" type=\"button\" class=\"btn btn-primary\" (click)=\"addInstruccion()\">ADD</button>\n          </div>\n          </div>\n          <table class=\"table table-striped\">\n            <thead>\n              <tr>\n                <th>Instruccion</th>\n                <th>Tipo</th>\n                <th>Reg dest</th>\n                <th>Reg 1</th>\n                <th>Reg 2</th>\n              </tr>\n            </thead>\n            <tbody>\n              <tr *ngFor=\"let i of instrucciones\">\n                <td>{{i.name}}</td>\n                <td>{{i.tipo.name}}</td>\n                <td>{{getRegDest(i.tipo.name,i.regDest)}}</td>\n                <td>{{getReg1(i.tipo.name,i.reg1)}}</td>\n                <td>{{i.reg2}}</td>\n              </tr>\n            </tbody>\n          </table>\n        </div>\n      </div><br />\n        <button [disabled]=\"ciclosDisabled()\" type=\"button\" class=\"btn btn-primary\" (click)=\"generarRob()\">Generar ROB</button>\n        <button type=\"button\" class=\"btn btn-secondary\" onClick=\"window.location.reload();\">Reset</button>\n        <table class='table table-bordered'>\n          <thead>\n            <tr>\n              <th>Ciclo</th>\n              <th attr.colspan=\"{{despacho.tamano}}\">Despacho</th>\n              <th attr.colspan=\"{{estaciones.tamano}}\">Estaciones</th>\n              <th attr.colspan=\"{{unidadesFuncionales.tamano}}\">UF</th>\n              <th attr.colspan=\"{{unidadesFuncionales.tamano+estaciones.tamano}}\">ROB</th>\n            </tr>\n          </thead>\n          <tbody>\n            <tr *ngFor=\"let c of ciclos; let i = index\" >\n              <ng-container>\n                <th>\n                  {{i}}\n                </th>\n                <td *ngFor=\"let instr of c.despacho.instrucciones\">\n                  {{instr.name}}\n                </td>\n                <td *ngFor=\"let instru of c.estaciones.instrucciones\">\n                  {{instru.name}}\n                </td>\n                <td *ngFor=\"let instru of c.unidadesFuncionales.instrucciones\">\n                  {{instru.name}}\n                </td>\n                <td *ngFor=\"let instru of c.celdas.instrucciones\">\n                  {{instru.getName()+ ' '}}{{' ' + instru.getEstado()}}\n                </td>\n              </ng-container>\n            </tr>\n  \n          </tbody>\n        </table>\n      </div>\n<div>\n  <h4>Powered By: </h4>\n  <div>Lautaro Fernandez</div>\n  <div>Nicolas Sebey</div>\n</div>");
 
 /***/ }),
 
@@ -53,7 +53,7 @@ __webpack_require__.r(__webpack_exports__);
 /*!*****************************************!*\
   !*** ./node_modules/tslib/tslib.es6.js ***!
   \*****************************************/
-/*! exports provided: __extends, __assign, __rest, __decorate, __param, __metadata, __awaiter, __generator, __exportStar, __values, __read, __spread, __spreadArrays, __await, __asyncGenerator, __asyncDelegator, __asyncValues, __makeTemplateObject, __importStar, __importDefault */
+/*! exports provided: __extends, __assign, __rest, __decorate, __param, __metadata, __awaiter, __generator, __exportStar, __values, __read, __spread, __spreadArrays, __await, __asyncGenerator, __asyncDelegator, __asyncValues, __makeTemplateObject, __importStar, __importDefault, __classPrivateFieldGet, __classPrivateFieldSet */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -78,6 +78,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__makeTemplateObject", function() { return __makeTemplateObject; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__importStar", function() { return __importStar; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__importDefault", function() { return __importDefault; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__classPrivateFieldGet", function() { return __classPrivateFieldGet; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__classPrivateFieldSet", function() { return __classPrivateFieldSet; });
 /*! *****************************************************************************
 Copyright (c) Microsoft Corporation. All rights reserved.
 Licensed under the Apache License, Version 2.0 (the "License"); you may not use
@@ -146,10 +148,11 @@ function __metadata(metadataKey, metadataValue) {
 }
 
 function __awaiter(thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
         function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
         function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 }
@@ -187,14 +190,15 @@ function __exportStar(m, exports) {
 }
 
 function __values(o) {
-    var m = typeof Symbol === "function" && o[Symbol.iterator], i = 0;
+    var s = typeof Symbol === "function" && Symbol.iterator, m = s && o[s], i = 0;
     if (m) return m.call(o);
-    return {
+    if (o && typeof o.length === "number") return {
         next: function () {
             if (o && i >= o.length) o = void 0;
             return { value: o && o[i++], done: !o };
         }
     };
+    throw new TypeError(s ? "Object is not iterable." : "Symbol.iterator is not defined.");
 }
 
 function __read(o, n) {
@@ -273,6 +277,21 @@ function __importStar(mod) {
 
 function __importDefault(mod) {
     return (mod && mod.__esModule) ? mod : { default: mod };
+}
+
+function __classPrivateFieldGet(receiver, privateMap) {
+    if (!privateMap.has(receiver)) {
+        throw new TypeError("attempted to get private field on non-instance");
+    }
+    return privateMap.get(receiver);
+}
+
+function __classPrivateFieldSet(receiver, privateMap, value) {
+    if (!privateMap.has(receiver)) {
+        throw new TypeError("attempted to set private field on non-instance");
+    }
+    privateMap.set(receiver, value);
+    return value;
 }
 
 
@@ -541,6 +560,8 @@ class Instruccion {
         this.reg2 = reg2;
         this.segundaInstruccion = null;
         this.cicloActual = 0;
+        if (tipo.name == 'ST' || tipo.name == 'LD')
+            this.reg2 = null;
     }
     clon() {
         var instruccionClon = new Instruccion(this.name, this.tipo.clon(), this.estado, this.regDest, this.reg1, this.reg2);
@@ -754,13 +775,13 @@ class RobComponent {
     constructor() {
         this.visibleActual = 0;
         this.tipo = new _class_tipo__WEBPACK_IMPORTED_MODULE_8__["Tipo"]('ADD', 1);
-        this.regDest = null;
-        this.reg1 = null;
-        this.reg2 = null;
+        this.regDest = 'R0';
+        this.reg1 = 'R0';
+        this.reg2 = 'R0';
         this.registros = ['R0', 'R1', 'R2', 'R3', 'R4', 'R5', 'R6', 'R7', 'R8', 'R9'];
         this.registrosEstadoOcupado = ['D', 'D', 'D', 'D', 'D', 'D', 'D', 'D', 'D', 'D'];
         this.tipos = [new _class_tipo__WEBPACK_IMPORTED_MODULE_8__["Tipo"]('ADD', 1), new _class_tipo__WEBPACK_IMPORTED_MODULE_8__["Tipo"]('SUB', 1), new _class_tipo__WEBPACK_IMPORTED_MODULE_8__["Tipo"]('MUL', 1), new _class_tipo__WEBPACK_IMPORTED_MODULE_8__["Tipo"]('DIV', 1), new _class_tipo__WEBPACK_IMPORTED_MODULE_8__["Tipo"]('ST', 1), new _class_tipo__WEBPACK_IMPORTED_MODULE_8__["Tipo"]('LD', 1)];
-        this.cant = [1, 2, 3, 4, 5, 6, 7];
+        this.cant = [1, 2, 3, 4, 5, 6, 7, 8, 9];
         this.list = [1, 2, 3, 4, 5, 6, 7, 1, 1, 1, 1, 1, 1];
         this.instruccionesPorCicloDisabled = false;
         this.despacho = new _class_despacho__WEBPACK_IMPORTED_MODULE_3__["Despacho"]([new _class_Instruccion__WEBPACK_IMPORTED_MODULE_7__["Instruccion"]("", new _class_tipo__WEBPACK_IMPORTED_MODULE_8__["Tipo"]('ADD', 1), "", "R1", "R2", "R3")], 1);
@@ -867,10 +888,12 @@ class RobComponent {
                     }
                 }
                 //------------------------------------------------------------------------
+                var sacados = 0;
                 //Se sacan los que esten en F y se puedan sacar
                 for (let j = 0; j < this.celdas.tamano; j++) {
-                    if (this.ciclos[actual].celdas.instrucciones[j].segundaInstruccion != null) {
+                    if (this.ciclos[actual].celdas.instrucciones[j].segundaInstruccion != null && sacados < this.despacho.tamano) {
                         //if (this.puedoSacarSegundaInstruccion(actual, j) == 'Y') {
+                        sacados++;
                         var nombre = this.ciclos[actual].celdas.instrucciones[j].segundaInstruccion.name;
                         this.ciclos[actual].celdas.instrucciones[j].segundaInstruccion = null;
                         var numero = nombre.substr(1);
@@ -878,7 +901,8 @@ class RobComponent {
                         this.instrucciones[num].estado = 'AFUERA';
                         //}
                     }
-                    if (this.ciclos[actual].celdas.instrucciones[j].estado == 'F' && this.puedoSacarlo(actual, j) == 'Y') {
+                    if (this.ciclos[actual].celdas.instrucciones[j].estado == 'F' && this.puedoSacarlo(actual, j) == 'Y' && sacados < this.despacho.tamano) {
+                        sacados++;
                         var nombre = this.ciclos[actual].celdas.instrucciones[j].name;
                         this.ciclos[actual].celdas.instrucciones[j].name = '';
                         this.ciclos[actual].celdas.instrucciones[j].estado = '';
@@ -1113,19 +1137,13 @@ class RobComponent {
         return (!this.instrucciones || this.instrucciones.length == 0);
     }
     addInstruccion() {
-        if (this.instrucciones == undefined)
+        if (this.instrucciones == undefined) {
+            if (this.tipo.name == 'ADD')
+                this.tipo = this.tipos[0];
             this.instrucciones = [new _class_Instruccion__WEBPACK_IMPORTED_MODULE_7__["Instruccion"]('S' + 0, this.tipo, 'I', this.regDest, this.reg1, this.reg2)];
+        }
         else
             this.instrucciones[this.instrucciones.length] = new _class_Instruccion__WEBPACK_IMPORTED_MODULE_7__["Instruccion"]('S' + this.instrucciones.length, this.tipo, 'I', this.regDest, this.reg1, this.reg2);
-    }
-    verificarRegistros() {
-        this.instruccionesPorCicloDisabled = true;
-        if (this.tipo.name == 'ST' || this.tipo.name == 'LD') {
-            if (this.reg1 != null && this.regDest != null)
-                document.getElementById("addBtn").disabled = false;
-        }
-        else if (this.reg1 != null && this.reg2 != null && this.regDest != null)
-            document.getElementById("addBtn").disabled = false;
     }
     getReg1(tipo, reg) {
         if (tipo == 'LD')
@@ -1146,17 +1164,10 @@ class RobComponent {
                 this.tipo = t;
         }
         if (this.tipo.name == 'ST' || this.tipo.name == 'LD') {
-            this.reg2 = null;
             document.getElementById("reg2").disabled = true;
-            if (this.reg1 != null && this.regDest != null)
-                document.getElementById("addBtn").disabled = false;
         }
         else {
             document.getElementById("reg2").disabled = false;
-            if (this.reg1 == null || this.reg2 == null || this.regDest == null)
-                document.getElementById("addBtn").disabled = true;
-            if (this.reg1 != null && this.reg2 != null && this.regDest != null)
-                document.getElementById("addBtn").disabled = false;
         }
     }
 };
