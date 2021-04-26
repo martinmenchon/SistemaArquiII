@@ -1,28 +1,28 @@
 {
   "files": {
-    "main.js": "./static/js/main.97f23a1b.chunk.js",
-    "main.js.map": "./static/js/main.97f23a1b.chunk.js.map",
-    "runtime-main.js": "./static/js/runtime-main.de02075e.js",
-    "runtime-main.js.map": "./static/js/runtime-main.de02075e.js.map",
-    "static/js/2.6c984fb7.chunk.js": "./static/js/2.6c984fb7.chunk.js",
-    "static/js/2.6c984fb7.chunk.js.map": "./static/js/2.6c984fb7.chunk.js.map",
-    "static/js/3.95d612b5.chunk.js": "./static/js/3.95d612b5.chunk.js",
-    "static/js/3.95d612b5.chunk.js.map": "./static/js/3.95d612b5.chunk.js.map",
-    "static/js/4.a34ca155.chunk.js": "./static/js/4.a34ca155.chunk.js",
-    "static/js/4.a34ca155.chunk.js.map": "./static/js/4.a34ca155.chunk.js.map",
-    "static/js/5.b17a1caa.chunk.js": "./static/js/5.b17a1caa.chunk.js",
-    "static/js/5.b17a1caa.chunk.js.map": "./static/js/5.b17a1caa.chunk.js.map",
-    "index.html": "./index.html",
-    "service-worker.js": "./service-worker.js",
-    "service-worker.js.map": "./service-worker.js.map",
-    "static/js/2.6c984fb7.chunk.js.LICENSE.txt": "./static/js/2.6c984fb7.chunk.js.LICENSE.txt",
-    "static/media/arithmeticMedian.1822f913.png": "./static/media/arithmeticMedian.1822f913.png",
-    "static/media/geometric.c08a434d.png": "./static/media/geometric.c08a434d.png",
-    "static/media/weighted.06a2cd42.png": "./static/media/weighted.06a2cd42.png"
+    "main.js": "/SistemaArquiII/Comparacion_de_rendimientos/static/js/main.939283e6.chunk.js",
+    "main.js.map": "/SistemaArquiII/Comparacion_de_rendimientos/static/js/main.939283e6.chunk.js.map",
+    "runtime-main.js": "/SistemaArquiII/Comparacion_de_rendimientos/static/js/runtime-main.d3b161d9.js",
+    "runtime-main.js.map": "/SistemaArquiII/Comparacion_de_rendimientos/static/js/runtime-main.d3b161d9.js.map",
+    "static/js/2.6c984fb7.chunk.js": "/SistemaArquiII/Comparacion_de_rendimientos/static/js/2.6c984fb7.chunk.js",
+    "static/js/2.6c984fb7.chunk.js.map": "/SistemaArquiII/Comparacion_de_rendimientos/static/js/2.6c984fb7.chunk.js.map",
+    "static/js/3.95d612b5.chunk.js": "/SistemaArquiII/Comparacion_de_rendimientos/static/js/3.95d612b5.chunk.js",
+    "static/js/3.95d612b5.chunk.js.map": "/SistemaArquiII/Comparacion_de_rendimientos/static/js/3.95d612b5.chunk.js.map",
+    "static/js/4.a34ca155.chunk.js": "/SistemaArquiII/Comparacion_de_rendimientos/static/js/4.a34ca155.chunk.js",
+    "static/js/4.a34ca155.chunk.js.map": "/SistemaArquiII/Comparacion_de_rendimientos/static/js/4.a34ca155.chunk.js.map",
+    "static/js/5.b17a1caa.chunk.js": "/SistemaArquiII/Comparacion_de_rendimientos/static/js/5.b17a1caa.chunk.js",
+    "static/js/5.b17a1caa.chunk.js.map": "/SistemaArquiII/Comparacion_de_rendimientos/static/js/5.b17a1caa.chunk.js.map",
+    "index.html": "/SistemaArquiII/Comparacion_de_rendimientos/index.html",
+    "service-worker.js": "/SistemaArquiII/Comparacion_de_rendimientos/service-worker.js",
+    "service-worker.js.map": "/SistemaArquiII/Comparacion_de_rendimientos/service-worker.js.map",
+    "static/js/2.6c984fb7.chunk.js.LICENSE.txt": "/SistemaArquiII/Comparacion_de_rendimientos/static/js/2.6c984fb7.chunk.js.LICENSE.txt",
+    "static/media/arithmeticMedian.1822f913.png": "/SistemaArquiII/Comparacion_de_rendimientos/static/media/arithmeticMedian.1822f913.png",
+    "static/media/geometric.c08a434d.png": "/SistemaArquiII/Comparacion_de_rendimientos/static/media/geometric.c08a434d.png",
+    "static/media/weighted.06a2cd42.png": "/SistemaArquiII/Comparacion_de_rendimientos/static/media/weighted.06a2cd42.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.de02075e.js",
+    "static/js/runtime-main.d3b161d9.js",
     "static/js/2.6c984fb7.chunk.js",
-    "static/js/main.97f23a1b.chunk.js"
+    "static/js/main.939283e6.chunk.js"
   ]
 }
