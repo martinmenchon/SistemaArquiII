@@ -1,0 +1,73 @@
+{
+  "sidebar": {
+    "item": {
+      "arithmetic": "Media Aritmética",
+      "weighted": "Media Aritmética Ponderada",
+      "geometric": "Media Geométrica",
+      "class": "Sitio de la Cátedra"
+    }
+  },
+  "header": {
+    "title": "Comparador de Rendimientos",
+    "buttons": {
+      "class": "Página de la Cátedra"
+    },
+    "menu": {
+      "class": "Página de la Cátedra",
+      "bugReport": "Reportar Bug",
+      "about": "Acerca de esta app"
+    },
+    "moreMenu": "Opciones"
+  },
+  "modals": {
+    "about": {
+      "title": "Acerca de esta app",
+      "body": "Esta app fue desarrollada con mucho 💝 por Tomás García Gobet y Matías Gallo en el 2019. ¿Sabías que la app puede funcionar offline? ¡Sí! Si el navegador no te lo ofreció, la podés agregar a tu pantalla de inicio. Súper 🆒. Si tenés ganas, podés contribuir al desarrollo de esta app, siguiendo el enlace debajo al repositorio.",
+      "repo": "Repo"
+    },
+    "editMachines": {
+      "addMachine": "Agregar máquina",
+      "newMachineId": "ID de la máquina",
+      "valueForBenchmark": "Valor para el benchmark {{id}}",
+      "addNewMachine": "Agregar nueva máquina",
+      "cancelEditing": "Cancelar"
+    },
+    "editBenchmarks": {
+      "newBenchmarkId": "ID del Benchmark",
+      "valueForMachine": "Valor para la máquina {{id}}",
+      "addNewBenchmark": "Agregar nuevo benchmark",
+      "addBenchmark": "Agregar benchmark",
+      "deleteBenchmark": "Eliminar benchmark",
+      "title": "Editar Benchmarks",
+      "cancelEditing": "Cancelar"
+    },
+    "formulaViewer": {
+      "title": "Fórmula para {{formula}}"
+    }
+  },
+  "main": {
+    "results": {
+      "subtitle": "Para cada máquina",
+      "arithmeticMedian": "Media Aritmética",
+      "geometricMedian": "Media Geométrica",
+      "geometricSubtitle": "Resultados normalizados según {{machineId}}",
+      "weightedMedian": "Media Aritmética Ponderada",
+      "weightedSubtitle": "Ponderada por el inverso de tiempos de ejecución de {{machineId}}",
+      "openFormula": "Abrir fórmula"
+    }
+  },
+  "table": {
+    "optionsMenu": {
+      "editMahcines": "Editar máquinas",
+      "editBenchmarks": "Editar benchmarks"
+    },
+    "toolbar": {
+      "edit": "Editar"
+    }
+  },
+  "formulas": {
+    "arithmeticMedian": "Media Aritmética",
+    "geometricMedian": "Media Geométrica",
+    "weightedArithmeticMedian": "Media Aritmética Ponderada"
+  }
+}

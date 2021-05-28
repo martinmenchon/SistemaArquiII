@@ -1,0 +1,65 @@
+{
+  "header": {
+    "title": "Performance Comparator",
+    "buttons": {
+      "class": "Course Website"
+    },
+    "menu": {
+      "class": "Course Site",
+      "bugReport": "Bug Report",
+      "about": "About this app"
+    },
+    "moreMenu": "Extra options"
+  },
+  "modals": {
+    "about": {
+      "title": "About this app",
+      "body": "This app was developed with much love (so wow) by Tomás García Gobet and Matías Gallo in 2019. This app can work offline! If your browser hasn't asked for it yet, you can simply add it to your home screen. This app is open source, so if you want to contribute below, you are more than welcome!",
+      "repo": "Repo"
+    },
+    "editMachines": {
+      "addMachine": "Add machine",
+      "newMachineId": "Machine ID",
+      "valueForBenchmark": "Value for benchmark {{id}}",
+      "addNewMachine": "Add new machine",
+      "cancelEditing": "Cancel"
+    },
+    "editBenchmarks": {
+      "valueForMachine": "Value for machine {{id}}",
+      "newBenchmarkId": "Benchmark ID",
+      "cancelEditing": "Cancel",
+      "addNewBenchmark": "Add new benchmark",
+      "addBenchmark": "Add benchmark",
+      "deleteBenchmark": "Delete benchmark",
+      "title": "Edit Benchmarks"
+    },
+    "formulaViewer": {
+      "title": "{{formula}}'s Formula"
+    }
+  },
+  "main": {
+    "results": {
+      "subtitle": "For each machine",
+      "arithmeticMedian": "Arithmetic Median",
+      "geometricMedian": "Geometric Median",
+      "geometricSubtitle": "Results normalized by {{machineId}}",
+      "weightedMedian": "Weighted Arithmetic Median",
+      "weightedSubtitle": "Weighted by the inverse of {{machineId}}'s execution times",
+      "openFormula": "Open formula"
+    }
+  },
+  "table": {
+    "optionsMenu": {
+      "editMahcines": "Edit machines",
+      "editBenchmarks": "Edit benchmarks"
+    },
+    "toolbar": {
+      "edit": "Edit"
+    }
+  },
+  "formulas": {
+    "arithmeticMedian": "Arithmetic Median",
+    "geometricMedian": "Geometric Median",
+    "weightedArithmeticMedian": "Weighted Arithmetic Median"
+  }
+}

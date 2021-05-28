@@ -1,0 +1,11 @@
+.gitignore
+.gitattributes
+.prettierrc
+**/node_modules
+*.json
+*.md
+*.lock
+webpack.*.ts
+serviceWorker.ts
+sw-build.js
+sw-custom.js
