@@ -1,0 +1,32 @@
+[
+    {
+        "id": 1,
+        "level": 1,
+        "group": "a",
+        "label": "S1"
+    },
+    {
+        "id": 2,
+        "level": 1,
+        "group": "b",
+        "label": "S2"
+    },
+    {
+        "id": 3,
+        "level": 2,
+        "group": "a",
+        "label": "S3"
+    },
+    {
+        "id": 4,
+        "level": 4,
+        "group": "c",
+        "label": "S4"
+    },
+    {
+        "id": 5,
+        "level": 2,
+        "group": "b",
+        "label": "S5"
+    }
+]

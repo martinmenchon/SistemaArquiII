@@ -1,0 +1,78 @@
+[
+    {
+        "id": 1,
+        "latencia": 3,
+        "write":{
+            "var": "A",
+            "offset": -1
+        },
+        "read":[{
+            "var":"E",
+            "offset": -2
+        },
+        {
+            "var": "D",
+            "offset": -3   
+        }]
+    },
+    {
+        "id": 2,
+        "latencia": 7,
+        "write":{
+            "var": "B",
+            "offset": 0
+        },
+        "read":[{
+            "var":"B",
+            "offset":0
+        },
+        {
+            "var":"B",
+            "offset":0
+        },
+        {
+            "var": "A",
+            "offset": -1   
+        }]
+    },
+    {
+        "id": 3,
+        "latencia": 5,
+        "write":{
+            "var": "C",
+            "offset": 0
+        },
+        "read":[{
+            "var":"A",
+            "offset": 0
+        },
+        {
+            "var": "B",
+            "offset": 0   
+        }]
+    },
+    {
+        "id": 4,
+        "latencia": 6,
+        "write":{
+            "var": "D",
+            "offset": 0
+        },
+        "read":[{
+            "var":"C",
+            "offset": 2
+        }]
+    },
+    {
+        "id": 5,
+        "latencia": 5,
+        "write":{
+            "var": "E",
+            "offset": 0
+        },
+        "read":[{
+            "var":"C",
+            "offset": -1
+        }]
+    },
+]
