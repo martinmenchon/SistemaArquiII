@@ -1,0 +1,28 @@
+
+<nav class="navbar navbar-expand-lg navbar-dark" style="min-width: 33rem;">
+    <span>
+        <mat-icon>dashboard</mat-icon>
+        <p class="navbar" style="width: 170px; text-align: center;">Planificación ILP</p>
+
+    </span>
+
+    <button class="navbar-toggler" type="button" (click)="toggleNavbar()" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" [ngClass]="{ 'show': navbarOpen }">
+      <ul class="navbar-nav mr-auto">
+
+        <li class="nav-item active">
+          <!-- <a class="nav-link" routerLink="" routerLinkActive="active">Inicio <span class="sr-only">(current)</span></a> -->
+          <a class="nav-link" routerLink="" routerLinkActive="active">Inicio</a>
+        </li>
+
+        <li class="nav-item active">
+          <!-- <a class="nav-link" routerLink="about" routerLinkActive="simulation">Simulacion</a> -->
+          <a class="nav-link" routerLink="simulation" routerLinkActive="active">Simulación</a>
+        </li>
+
+      </ul>
+    </div>
+  </nav> 

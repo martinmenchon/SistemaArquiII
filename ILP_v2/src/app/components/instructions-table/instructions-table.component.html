@@ -1,0 +1,57 @@
+<div class="card" style="width: 26rem;">
+    <!-- <h5 class="card-header">
+        Instrucciones
+    </h5> -->
+
+    <div class="card-header">
+
+        <div class="row content-md-center px-md-3">
+
+            <div class="col px-md-1 align-self-center">
+                <h5>
+                    Instrucciones
+                </h5>
+            </div>
+
+            <div class="col- px-md-1 align-self-center">
+                <div class="btn-group" ngbDropdown role="group" aria-label="Button group with nested dropdown">
+                    <button id="btn-next-simulation" type="button" class="btn btn-outline-info"
+                        (click)="clearInstructions()">Limpiar
+                    </button>
+                </div>
+            </div>
+
+
+        </div>
+
+    </div>
+    <div class="card-body">
+        <table class="table table-bordered" style="width:5cm">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Instrucción</th>
+                    <th scope="col">DST</th>
+                    <th scope="col">OP1</th>
+                    <th scope="col">OP2</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let inst of instructions">
+                    <td>{{ inst.getIdString() }}</td>
+                    <td> {{ inst.getType() }}</td>
+                    <td> {{ inst.getDestinationString()}}</td>
+                    <td> {{ inst.getOP1String()}}</td>
+                    <td> {{inst.getOP2String()}}</td>
+                    <td>
+                        <button type="button" class="close" aria-label="Close" (click)=deleteInstruction(inst)><span aria-hidden="true">&times;</span></button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+
+
+    </div>
+</div>

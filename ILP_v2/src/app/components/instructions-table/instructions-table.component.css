@@ -1,0 +1,4 @@
+.btn-outline-info:disabled {
+    color:gray;
+    border-color: gray;
+}

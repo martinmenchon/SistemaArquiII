@@ -5,7 +5,7 @@ Los mismos son de carácter didáctico y están disponibles en los siguientes en
 
 * [Perfiles de paralelismo](https://martinmenchon.github.io/SistemaArquiII/Perfiles_de_paralelismo/index.html) <br>
 * [Benchmarks de procesadores](https://martinmenchon.github.io/SistemaArquiII/Comparacion_de_rendimientos/index.html)<br>
-* [Trazas](https://valenfv.github.io/)<br>
+* [Trazas](https://martinmenchon.github.io/SistemaArquiII/Trazas_v2/index.html)<br>
 * [Simulador de Buffer de Reordenamiento (ROB)](https://martinmenchon.github.io/SistemaArquiII/Rob_Videla_Stampone/)<br>
 * [Tomasulo](https://martinmenchon.github.io/SistemaArquiII/Tomasulo/Tomasulo.html)<br>
 * [Loop Unrolling](https://martinmenchon.github.io/SistemaArquiII/New_Loop_unrolling/)<br>

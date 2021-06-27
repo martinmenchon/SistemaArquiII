@@ -1,0 +1,64 @@
+<div>
+
+    <div class="container mt-4" style="margin-bottom: 100px">
+        <div class="row">
+
+            <div class="col-auto mb-3">
+
+                <div class="row-auto mb-3">
+                    <fieldset [disabled]="!editing">
+                        <app-add-instruction></app-add-instruction>
+                    </fieldset>
+                </div>
+
+                <div class="row-auto mb-3">
+                    <fieldset [disabled]="!editing">
+                        <app-instructions-table></app-instructions-table>
+                    </fieldset>
+
+                </div>
+            </div>
+
+            <div class="col-auto mb-3">
+                <div class="row-auto  mb-3">
+                    <fieldset [disabled]="!editing">
+                        <app-config-processor></app-config-processor>
+                    </fieldset>
+
+                </div>
+
+                <div class="row-auto  mb-3">
+                    <fieldset [disabled]="!editing">
+                        <app-load-examples></app-load-examples>
+                    </fieldset>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+
+
+    <div class="container-fluid" style="position: fixed; bottom: 0; ">
+        <div class="row" style="padding-top: 1rem; padding-bottom: 1rem;  background-color: rgb(146, 146, 146);">
+            <div class="col">
+                <div class="d-flex justify-content-center">
+                    <div class="btn-group" ngbDropdown role="group">
+                        <button id="btn-save" type="button" class="btn btn-light" [disabled]="!editing"
+                            (click)="saveConfiguration()">Guardar
+                        </button>
+                        <button id="btn-reset" type="button" class="btn btn-light" [disabled]="editing"
+                            (click)="editConfiguration()">Editar
+                        </button>
+                        <button id="btn-execute" type="button" class="btn btn-light" [disabled]="editing"
+                            (click)="executeILP()">Ejecutar
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>

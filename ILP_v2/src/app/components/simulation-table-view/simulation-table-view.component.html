@@ -1,0 +1,53 @@
+<div class="card" style="min-width: 26rem;">
+
+
+    <div class="card-header">
+
+        <div class="row content-md-center px-md-3">
+
+            <div class="col px-md-1 align-self-center">
+                <h5>
+                    Simulación
+                </h5>
+            </div>
+
+            <div class="col- px-md-1 align-self-center">
+                <div class="btn-group" ngbDropdown role="group" aria-label="Button group with nested dropdown">
+                    <button id="btn-restart-simulation" type="button" class="btn btn-info" (click)="restart()">Reiniciar
+                    </button>
+                    <button id="btn-next-simulation" type="button" class="btn btn-outline-info"
+                        (click)="nextCycle()">Siguente
+                    </button>
+                </div>
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+    <div class="card-body">
+
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th scope="col" style="text-align:center" >Ciclos</th>
+                    <th scope="col" style="text-align:center" >Planificables</th>
+                    <th scope="col" style="text-align:center" >Elegidas</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let step of simulationSteps">
+                    <td style="text-align:center">{{ step.cycle }}</td>
+                    <td style="text-align:center"> {{ step.planificatedSetString }}</td>
+                    <td style="text-align:center"> {{ step.chosenSetString}}</td>
+                </tr>
+            </tbody>
+        </table>
+
+
+
+    </div>
+
+</div>

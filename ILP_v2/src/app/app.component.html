@@ -1,0 +1,18 @@
+<div class="container-fluid" style="padding: 0px;">
+    <app-navbar></app-navbar>
+
+    <div class="container" style="margin: 15px;">
+        <div class="row ">
+            <div class="col- md-12">
+                <ngb-alert *ngIf="!closed" (close)="closed=true">
+                    <p style="margin-bottom: 0px;"><strong> Desarrollado </strong> por los alumnos Rago Nicolás y
+                        Carpintero Juan Bautista.</p>
+                    <p style="margin-bottom: 0px;"> Arquitectura de Computadoras y Técnicas Digitales.</p>
+                </ngb-alert>
+            </div>
+        </div>
+    </div>
+
+    <router-outlet></router-outlet>
+
+</div>

@@ -1,0 +1,212 @@
+<div class="card" style="width: 30rem;">
+    <h5 class="card-header">
+        Configuraciones
+    </h5>
+    <div class="card-body">
+
+
+        <h5 class="card-title">Latencias en ciclos</h5>
+        <div class="col">
+
+
+            <div class="row">
+                <div class="col- px-md-1">
+                    <div class="btn-group rpadding-10  bpadding-10" ngbDropdown role="group"
+                        aria-label="Button group with nested dropdown">
+                        <button class="btn btn-outline-danger" style="min-width: 5rem;">ADD:</button>
+                        <button class="btn btn-outline-danger" id="btn-Inst-ADD"
+                            ngbDropdownToggle> {{processorSettings.latencyADD}}</button>
+                        <div class="dropdown-menu" ngbDropdownMenu>
+                            <button class="dropdown-item" *ngFor="let num of range99    "
+                                (click)="processorSettings.latencyADD = num">{{num}}</button>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="col- px-md-1">
+                    <div class="btn-group rpadding-10  bpadding-10" ngbDropdown role="group"
+                        aria-label="Button group with nested dropdown">
+                        <button class="btn btn-outline-danger" style="min-width: 5rem;">SUB:</button>
+                        <button class="btn btn-outline-danger" id="btn-Inst-SUB"
+                            ngbDropdownToggle> {{processorSettings.latencySUB}}</button>
+                        <div class="dropdown-menu" ngbDropdownMenu>
+                            <button class="dropdown-item" *ngFor="let num of range99    "
+                                (click)="processorSettings.latencySUB = num">{{num}}</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <p></p>
+            </div>
+
+            <div class="row">
+                <div class="col- px-md-1">
+                    <div class="btn-group rpadding-10  bpadding-10" ngbDropdown role="group"
+                        aria-label="Button group with nested dropdown">
+                        <button class="btn btn-outline-danger" style="min-width: 5rem;">MUL:</button>
+                        <button class="btn btn-outline-danger" id="btn-Inst-MUL"
+                            ngbDropdownToggle> {{processorSettings.latencyMUL}}</button>
+                        <div class="dropdown-menu" ngbDropdownMenu>
+                            <button class="dropdown-item" *ngFor="let num of range99    "
+                                (click)="processorSettings.latencyMUL = num">{{num}}</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col- px-md-1">
+                    <div class="btn-group rpadding-10  bpadding-10" ngbDropdown role="group"
+                        aria-label="Button group with nested dropdown">
+                        <button class="btn btn-outline-danger" style="min-width: 5rem;">DIV:</button>
+                        <button class="btn btn-outline-danger" id="btn-Inst-DIV"
+                            ngbDropdownToggle> {{processorSettings.latencyDIV}}</button>
+                        <div class="dropdown-menu" ngbDropdownMenu>
+                            <button class="dropdown-item" *ngFor="let num of range99    "
+                                (click)="processorSettings.latencyDIV = num">{{num}}</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <p></p>
+            </div>
+            <div class="row">
+                <div class="col- px-md-1">
+                    <div class="btn-group rpadding-10  bpadding-10" ngbDropdown role="group"
+                        aria-label="Button group with nested dropdown">
+                        <button class="btn btn-outline-danger" style="min-width: 5rem;">ST:</button>
+                        <button class="btn btn-outline-danger" id="btn-Inst-ST"
+                            ngbDropdownToggle> {{processorSettings.latencyST}}</button>
+                        <div class="dropdown-menu" ngbDropdownMenu>
+                            <button class="dropdown-item" *ngFor="let num of range99    "
+                                (click)="processorSettings.latencyST = num">{{num}}</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col- px-md-1">
+                    <div class="btn-group  bpadding-10" ngbDropdown role="group"
+                        aria-label="Button group with nested dropdown">
+                        <button class="btn btn-outline-danger" style="min-width: 5rem;">LD:</button>
+                        <button class="btn btn-outline-danger" id="btn-Inst-LD"
+                            ngbDropdownToggle> {{processorSettings.latencyLD}}</button>
+                        <div class="dropdown-menu" ngbDropdownMenu>
+                            <button class="dropdown-item" *ngFor="let num of range99    "
+                                (click)="processorSettings.latencyLD = num">{{num}}</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+        <div class="row">
+            <p></p>
+        </div>
+        <div class="row">
+            <p></p>
+        </div>
+
+        <div class="row">
+
+            <div class="col">
+
+                <h5 class="card-title">Unidades Funcionales</h5>
+
+                <div class="row">
+                    <div class="col">
+
+                        <div class="col- px-md-1">
+                            <div class="btn-group rpadding-10  bpadding-10" ngbDropdown role="group"
+                                aria-label="Button group with nested dropdown">
+                                <button class="btn btn-outline-danger" style="min-width: 8rem;">Multifunción:</button>
+                                <button id="btn-numMultifunction"
+                                    class="btn btn-outline-danger"
+                                    ngbDropdownToggle>{{processorSettings.numFUMultifunction}}</button>
+                                <div class="dropdown-menu" ngbDropdownMenu>
+                                    <button class="dropdown-item" *ngFor="let num of [0,1,2,3,4,5]"
+                                        (click)="processorSettings.numFUMultifunction = num">{{num}}</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <p></p>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <div class="col- px-md-1">
+                            <div class="btn-group rpadding-10  bpadding-10" ngbDropdown role="group"
+                                aria-label="Button group with nested dropdown">
+                                <button class="btn btn-outline-danger" style="min-width: 8rem;">Aritmética:</button>
+                                <button id="btn-numArithmetic"
+                                    class="btn btn-outline-danger"
+                                    ngbDropdownToggle>{{processorSettings.numFUArithmetic}}</button>
+                                <div class="dropdown-menu" ngbDropdownMenu>
+                                    <button class="dropdown-item" *ngFor="let num of [0,1,2,3,4,5]"
+                                        (click)="processorSettings.numFUArithmetic = num">{{num}}</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <p></p>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+
+                        <div class="col- px-md-1">
+                            <div class="btn-group bpadding-10" ngbDropdown role="group"
+                                aria-label="Button group with nested dropdown">
+                                <button class="btn btn-outline-danger" style="min-width: 8rem;">Memoria:</button>
+                                <button id="btn-numMemory" class="btn btn-outline-danger"
+                                    ngbDropdownToggle>{{processorSettings.numFUMemory}}</button>
+                                <div class="dropdown-menu" ngbDropdownMenu>
+                                    <button class="dropdown-item" *ngFor="let num of [0,1,2,3,4,5]"
+                                        (click)="processorSettings.numFUMemory = num">{{num}}</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col">
+                <h5 class="card-title">Dispatcher</h5>
+
+                <div class="row">
+                    <div class="col">
+                        <div class="btn-group bpadding-10" ngbDropdown role="group"
+                            aria-label="Button group with nested dropdown">
+                            <button class="btn btn-outline-danger">Grado:</button>
+                            <button class="btn btn-outline-danger" id="btn-GradoDispatch"
+                                ngbDropdownToggle> {{processorSettings.degree}}</button>
+                            <div class="dropdown-menu" ngbDropdownMenu>
+                                <button class="dropdown-item" *ngFor="let degree of [1,2,3,4,5]"
+                                    (click)="processorSettings.degree = degree">{{degree}}</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row">
+            <p></p>
+        </div>
+
+    </div>
+</div>

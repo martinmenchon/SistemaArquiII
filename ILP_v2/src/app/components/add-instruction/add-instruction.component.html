@@ -1,0 +1,57 @@
+<!-- Estos pueden no necesariamente requieren un unico root -->
+<div class="card" style="width: 26rem;">
+    <h5 class="card-header">
+        Agregar instrucción
+    </h5>
+    <div class="card-body">
+
+
+        <div class="btn-group mr-3 bpadding-10 ">
+
+            <!-- INSTRUCCIÓN -->
+            <div class="btn-group " ngbDropdown role="group" aria-label="Button group with nested dropdown">
+
+                <button id="btn-type" class="btn btn-outline-success" ngbDropdownToggle>{{addInstructionButtonLabels.type}}</button>
+
+                <div class="dropdown-menu" ngbDropdownMenu>
+                    <button class="dropdown-item" *ngFor="let type of typesInstruction" (click)="change('type',type)">{{type}}</button>
+                </div>
+            </div>
+
+            <!-- DST -->
+            <div class="btn-group " ngbDropdown role="group" aria-label="Button group with nested dropdown">
+
+                <button id="btn-dst" class="btn btn-outline-success" ngbDropdownToggle>{{addInstructionButtonLabels.dst}}</button>
+
+                <div class="dropdown-menu" ngbDropdownMenu>
+                    <button class="dropdown-item" *ngFor="let reg of registers" (click)="change('dst',reg)">{{reg}}</button>
+                </div>
+            </div>
+
+            <!-- OP1 -->
+            <div class="btn-group " ngbDropdown role="group" aria-label="Button group with nested dropdown">
+                <button id="btn-op1" class="btn btn-outline-success" ngbDropdownToggle>{{addInstructionButtonLabels.op1}}</button>
+                <div class="dropdown-menu" ngbDropdownMenu>
+                    <button class="dropdown-item" *ngFor="let reg of registers" (click)="change('op1',reg)">{{reg}}</button>
+                </div>
+            </div>
+
+            <!-- OP2 -->
+            <div class="btn-group" ngbDropdown role="group" aria-label="Button group with nested dropdown">
+                <button id="btn-op2" class="btn btn-outline-success" ngbDropdownToggle>
+                    {{addInstructionButtonLabels.op2}}</button>
+                <div class="dropdown-menu" ngbDropdownMenu>
+                    <button class="dropdown-item" *ngFor="let reg of registers" (click)="change('op2',reg)">{{reg}}</button>
+                </div>
+            </div>
+
+            <!-- AGREGAR -->
+            <button id="btn-Agregar" type="button" class="btn btn-outline-success" disabled (click)="addInstruction()">Agregar
+            </button>
+        </div>
+
+
+
+
+    </div>
+</div>
