@@ -9,7 +9,7 @@ Los mismos son de carácter didáctico y están disponibles en los siguientes en
 * [Simulador de Buffer de Reordenamiento (ROB)](https://martinmenchon.github.io/SistemaArquiII/Rob_Videla_Stampone/)<br>
 * [Tomasulo](https://martinmenchon.github.io/SistemaArquiII/Tomasulo/Tomasulo.html)<br>
 * [Loop Unrolling](https://martinmenchon.github.io/SistemaArquiII/New_Loop_unrolling/)<br>
-* [Planificador ILP](https://bautistacrp.github.io/ILP-Planning/)<br>
+* [Planificador ILP](https://martinmenchon.github.io/SistemaArquiII/ILP_v2/build/)<br>
 * [Redes de Interconexión](https://martinmenchon.github.io/SistemaArquiII/RedesDeInterconexion/)
 
 Si utiliza este código, considere citar:<br>
